@@ -1,0 +1,22 @@
+{
+  "name": "Om J. Mohite | Full Stack Web Developer & Designer",
+  "short_name": "Om Mohite",
+  "description": "Portfolio of Om J. Mohite - Full Stack Web Developer & Designer in Belagavi, Karnataka.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#FF6B35",
+  "icons": [
+    {
+      "src": "favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

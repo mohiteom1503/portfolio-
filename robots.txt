@@ -1,0 +1,6 @@
+# robots.txt for Om J. Mohite Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://itsomjmohite.netlify.app/sitemap.xml

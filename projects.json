@@ -1,0 +1,36 @@
+[
+  {
+    "id": "shri-kamakshi-clinic",
+    "title": "Shri Kamakshi Clinic & Orthopaedic Centre",
+    "url": "https://shrikamakshiclinic.netlify.app",
+    "displayUrl": "shrikamakshiclinic.netlify.app",
+    "image": "kamakshi-preview.png",
+    "category": "Healthcare & Orthopaedics",
+    "tags": ["Healthcare", "Orthopaedics", "Manual Therapy", "Belagavi"],
+    "description": "Designed and developed a highly responsive, professional single-page web platform for a premier Belagavi clinic featuring family medicine and specialized orthopaedic rehabilitation. Includes optimized asset delivery, instant appointment calling, doctor credential showcases, and Google review highlights.",
+    "highlights": [
+      "Mobile-first responsive architecture with zero layout shift",
+      "One-click phone appointment booking (+91 9972459785)",
+      "Dual medical practice integration (Family Medicine & Orthopaedic Rehab)",
+      "SEO & Schema structured data for Belagavi medical searches"
+    ],
+    "techStack": ["HTML5", "Modern CSS", "Responsive UI", "Schema.org", "Netlify"]
+  },
+  {
+    "id": "om-sai-jewellers",
+    "title": "Om Sai Jewellers",
+    "url": "https://omsaijewellersbgm.netlify.app",
+    "displayUrl": "omsaijewellersbgm.netlify.app",
+    "image": "omsai-preview.png",
+    "category": "Luxury Jewellery & Retail",
+    "tags": ["Retail & E-commerce", "Bullion Market", "BIS Hallmarked", "Belagavi"],
+    "description": "Designed and engineered a luxury showroom web application for Om Sai Jewellers in Shahapur, Belagavi. Features real-time hourly bullion market rates (24K Gold, 22K Gold, 925 Pure Silver) via StockeZee, an interactive precious metal price calculator, daily wear showcases, and direct WhatsApp customer inquiries.",
+    "highlights": [
+      "Live Bullion Market Rates widget with automatic price updates",
+      "Interactive Gold & Silver Price Calculator (weight + purity + making charges)",
+      "100% BIS Hallmarked purity assurance trust badges",
+      "Direct WhatsApp lead capture for custom orders"
+    ],
+    "techStack": ["HTML5", "Vanilla JavaScript", "Live Rates API", "CSS Grid", "WhatsApp API"]
+  }
+]

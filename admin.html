@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Project Manager | Om J. Mohite</title>
+    <!-- Prevent search engines from indexing the private admin tool -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-card: #181818;
+            --border-card: rgba(255, 255, 255, 0.1);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-orange: #FF6B35;
+            --accent-green: #10B981;
+            --accent-blue: #007BFF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            padding: 2rem 5%;
+            line-height: 1.6;
+        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .header h1 span { color: var(--accent-orange); }
+
+        /* Lock Screen */
+        .lock-container {
+            max-width: 420px;
+            margin: 6rem auto;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-card);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .lock-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Main Admin Grid */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        @media (max-width: 960px) {
+            .admin-grid { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-card);
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #d1d5db;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            background: #111;
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+        textarea.form-control { min-height: 80px; resize: vertical; }
+
+        .btn {
+            padding: 0.75rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .btn-primary { background: var(--accent-orange); color: #000; }
+        .btn-primary:hover { background: #ff7d4d; }
+        .btn-green { background: var(--accent-green); color: #000; }
+        .btn-green:hover { background: #34d399; }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-card);
+            color: #fff;
+        }
+        .btn-outline:hover { border-color: var(--accent-orange); color: var(--accent-orange); }
+
+        .code-box {
+            background: #0d0d0d;
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            padding: 14px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #34d399;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.2rem;
+        }
+
+        .guide-box {
+            background: rgba(0, 123, 255, 0.08);
+            border: 1px solid rgba(0, 123, 255, 0.25);
+            border-radius: 12px;
+            padding: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        .guide-box h4 { color: #60a5fa; margin-bottom: 0.6rem; }
+        .guide-box ol { padding-left: 1.2rem; color: #d1d5db; font-size: 0.92rem; }
+        .guide-box li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Password Screen -->
+    <div id="lockScreen" class="lock-container">
+        <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
+        <h2 style="margin-bottom: 0.5rem;">Private Admin Access</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            This page is for Om J. Mohite only. Enter your passcode to add new projects.
+        </p>
+        <div class="form-group">
+            <input type="password" id="passInput" class="form-control" placeholder="Enter password (default: om2026)" style="text-align: center;">
+        </div>
+        <button id="unlockBtn" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-unlock"></i> Unlock Dashboard
+        </button>
+        <div id="lockError" style="color: #ef4444; font-size: 0.85rem; margin-top: 10px; display: none;">
+            Incorrect passcode.
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="adminDashboard" style="display: none;">
+        <div class="header">
+            <div>
+                <h1>Om J. Mohite • <span>Project Creator</span></h1>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Easily generate ready-to-publish project codes for your portfolio.
+                </p>
+            </div>
+            <div>
+                <a href="index.html" class="btn btn-outline"><i class="fa-solid fa-eye"></i> View Live Portfolio</a>
+            </div>
+        </div>
+
+        <div class="admin-grid">
+            <!-- Left Panel: Form -->
+            <div class="panel">
+                <h3 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-square-plus" style="color: var(--accent-orange); margin-right: 8px;"></i> Project Details</h3>
+                <form id="projectForm">
+                    <div class="form-group">
+                        <label for="pTitle">Project Title *</label>
+                        <input type="text" id="pTitle" class="form-control" placeholder="e.g. Royal Cafe & Restro" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pUrl">Live Website URL *</label>
+                        <input type="url" id="pUrl" class="form-control" placeholder="https://royalcafe.netlify.app" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pCategory">Category &amp; Industry</label>
+                        <input type="text" id="pCategory" class="form-control" placeholder="e.g. Restaurant & Hospitality">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pTags">Tags (comma-separated)</label>
+                        <input type="text" id="pTags" class="form-control" placeholder="e.g. Dining, Online Menu, Belagavi">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pImage">Image Filename or URL</label>
+                        <input type="text" id="pImage" class="form-control" placeholder="e.g. royal-cafe.png or https://...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pDesc">Project Description *</label>
+                        <textarea id="pDesc" class="form-control" placeholder="Describe the problem solved, design approach, and results for the client..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pHighlights">Key Highlights (3 bullet points, separated by semicolons ';')</label>
+                        <input type="text" id="pHighlights" class="form-control" placeholder="Mobile-First Menu; Instant WhatsApp Reservation; Schema SEO">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pTech">Tech Stack (comma-separated)</label>
+                        <input type="text" id="pTech" class="form-control" placeholder="e.g. HTML5, Modern CSS, JavaScript, Netlify">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fa-solid fa-code"></i> Generate GitHub Code Snippet
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Panel: Generated Snippet & Guide -->
+            <div class="panel">
+                <h3 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-clipboard-check" style="color: var(--accent-green); margin-right: 8px;"></i> Generated Code Snippet</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Copy this snippet and paste it into your <code>projects.js</code> on GitHub:
+                </p>
+                
+                <div class="code-box" id="outputCode">// Fill in the form on the left and click "Generate"</div>
+
+                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                    <button class="btn btn-green" id="copyCodeBtn"><i class="fa-solid fa-copy"></i> Copy Code</button>
+                    <button class="btn btn-outline" id="downloadJsBtn"><i class="fa-solid fa-download"></i> Download Full projects.js</button>
+                </div>
+
+                <!-- 3-Click GitHub Guide -->
+                <div class="guide-box">
+                    <h4><i class="fa-brands fa-github"></i> How to add this on GitHub (Takes 30 seconds):</h4>
+                    <ol>
+                        <li>Open your portfolio repository on <strong>GitHub.com</strong> in your browser.</li>
+                        <li>Click on the file named <strong><code>projects.js</code></strong>.</li>
+                        <li>Click the <strong>✏️ (Pencil / Edit)</strong> button at the top-right of the file.</li>
+                        <li>Scroll to the bottom, paste the copied snippet right before the final <code>];</code>, and click the green <strong>"Commit changes"</strong> button.</li>
+                    </ol>
+                    <p style="margin-top: 10px; font-size: 0.88rem; color: #a7f3d0;">
+                        ✨ <strong>Done!</strong> Netlify will detect the update and refresh your live website automatically. No terminal or programming required!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="projects.js"></script>
+    <script>
+        const DEFAULT_PASS = "om2026";
+        const lockScreen = document.getElementById('lockScreen');
+        const adminDashboard = document.getElementById('adminDashboard');
+        const passInput = document.getElementById('passInput');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const lockError = document.getElementById('lockError');
+
+        function checkPass() {
+            if (passInput.value.trim() === DEFAULT_PASS) {
+                lockScreen.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            } else {
+                lockError.style.display = 'block';
+            }
+        }
+
+        unlockBtn.addEventListener('click', checkPass);
+        passInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkPass();
+        });
+
+        // Form Submit
+        const form = document.getElementById('projectForm');
+        const outputCode = document.getElementById('outputCode');
+        let latestProjectObject = null;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('pTitle').value.trim();
+            const url = document.getElementById('pUrl').value.trim();
+            const category = document.getElementById('pCategory').value.trim() || 'Client Project';
+            const tagsStr = document.getElementById('pTags').value.trim();
+            const image = document.getElementById('pImage').value.trim() || 'kamakshi-preview.png';
+            const desc = document.getElementById('pDesc').value.trim();
+            const highStr = document.getElementById('pHighlights').value.trim();
+            const techStr = document.getElementById('pTech').value.trim();
+
+            const tags = tagsStr ? tagsStr.split(',').map(s => s.trim()).filter(Boolean) : [category];
+            const techStack = techStr ? techStr.split(',').map(s => s.trim()).filter(Boolean) : ["HTML5", "CSS3", "JavaScript"];
+            const highlights = highStr ? highStr.split(';').map(s => s.trim()).filter(Boolean) : [
+                "Responsive mobile-first architecture",
+                "Direct lead conversion flow",
+                "Optimized for fast page speed"
+            ];
+
+            const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            const displayUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+            latestProjectObject = {
+                id: id,
+                title: title,
+                url: url,
+                displayUrl: displayUrl,
+                image: image,
+                category: category,
+                tags: tags,
+                description: desc,
+                highlights: highlights,
+                techStack: techStack
+            };
+
+            const snippet = `  {\n    id: "${id}",\n    title: "${title}",\n    url: "${url}",\n    displayUrl: "${displayUrl}",\n    image: "${image}",\n    category: "${category}",\n    tags: ${JSON.stringify(tags)},\n    description: "${desc.replace(/"/g, '\\"')}",\n    highlights: ${JSON.stringify(highlights, null, 6).replace(/\n/g, '\n    ')},\n    techStack: ${JSON.stringify(techStack)}\n  },`;
+
+            outputCode.textContent = snippet;
+        });
+
+        // Copy Code
+        const copyBtn = document.getElementById('copyCodeBtn');
+        copyBtn.addEventListener('click', () => {
+            if (!outputCode.textContent || outputCode.textContent.startsWith('//')) {
+                alert("Please generate a snippet first.");
+                return;
+            }
+            navigator.clipboard.writeText(outputCode.textContent).then(() => {
+                const prev = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => copyBtn.innerHTML = prev, 2000);
+            });
+        });
+
+        // Download full updated projects.js
+        const downloadJsBtn = document.getElementById('downloadJsBtn');
+        downloadJsBtn.addEventListener('click', () => {
+            const currentList = (typeof portfolioProjects !== 'undefined') ? [...portfolioProjects] : [];
+            if (latestProjectObject) {
+                currentList.push(latestProjectObject);
+            }
+            const fullJs = `// Om J. Mohite Portfolio - Projects Data\nconst portfolioProjects = ${JSON.stringify(currentList, null, 2)};\n\nif (typeof window !== 'undefined') {\n  window.portfolioProjects = portfolioProjects;\n}\n`;
+            const blob = new Blob([fullJs], { type: 'application/javascript' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'projects.js';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+    </script>
+</body>
+</html>
