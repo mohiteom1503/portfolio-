@@ -1,6 +1,47 @@
-# robots.txt for Om J. Mohite Portfolio
+# robots.txt for Om J. Mohite Portfolio (https://itsomjmohite.netlify.app)
+# Designed for maximum visibility across Search Engines and AI Search Engines
+
+# Universal Access
 User-agent: *
 Allow: /
 
-# Sitemap
+# Dedicated AI & Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemaps and AI Context Standards
 Sitemap: https://itsomjmohite.netlify.app/sitemap.xml
+
+# LLM Discovery File (Answer.ai Standard)
+# Direct AI context: https://itsomjmohite.netlify.app/llms.txt
+# Comprehensive context: https://itsomjmohite.netlify.app/llms-full.txt
