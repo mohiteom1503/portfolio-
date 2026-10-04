@@ -191,34 +191,35 @@
             "itemListElement": [
               {
                 "@type": "Offer",
+                "name": "Single-Page Website (Starter Package)",
+                "price": "8999",
+                "priceCurrency": "INR",
+                "description": "High-speed single-page website (<0.8s load time), mobile-first responsive layout, WhatsApp booking, Google Maps embed, on-page local SEO. Turnaround: 3–5 business days.",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Custom Single-Page Websites & Landing Pages",
-                  "description": "Ultra-fast, distraction-free single-page web platforms engineered with vanilla HTML/CSS/JS for sub-second load times."
+                  "name": "Single-Page Website Development"
                 }
               },
               {
                 "@type": "Offer",
+                "name": "Professional Practice Package (Business & Clinic)",
+                "price": "16999",
+                "priceCurrency": "INR",
+                "description": "Complete web platform for clinics and firms like Shri Kamakshi Clinic. Features dual practice showcase, 1-tap phone booking, doctor credentials & reviews carousel, deep Schema.org JSON-LD Local SEO graph. Turnaround: 5–7 business days.",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Local Business Digitization & Online Presence",
-                  "description": "Full-cycle digital transformation for clinics, retail showrooms, jewellery brands, and consulting practices."
+                  "name": "Medical Clinic & Business Web Platform"
                 }
               },
               {
                 "@type": "Offer",
+                "name": "Commercial Suite (Custom Platform)",
+                "price": "28999",
+                "priceCurrency": "INR",
+                "description": "Custom luxury platform like Om Sai Jewellers with real-time bullion market API ticker, interactive weight-to-cost estimator, Chart.js price trends, rate-lock WhatsApp pipeline, serverless functions. Turnaround: 10–14 business days.",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Local SEO & AI Search Engine Optimization (GEO)",
-                  "description": "High-trust structured data architecture, Schema.org integration, and rapid indexing for Google Search and AI answer engines."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Real-Time Bullion & Market Rate Integrations",
-                  "description": "Automated spot rate tracking for 24K, 22K, 18K gold and silver with interactive cost calculators and WhatsApp lead capture."
+                  "name": "Custom Commercial Platform & Real-Time API Integration"
                 }
               }
             ]
@@ -257,6 +258,22 @@
           "@type": "FAQPage",
           "@id": "https://itsomjmohite.netlify.app/#faq",
           "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are the web development pricing packages offered by Om J. Mohite?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Om J. Mohite offers three transparent, fixed-price packages in Belagavi and across India: 1. Single-Page Website (Starter) at ₹8,999 (3–5 days turnaround). 2. Professional Practice (Business & Clinic) at ₹16,999 (5–7 days turnaround, like Shri Kamakshi Clinic). 3. Commercial Suite (Custom Platform) starting at ₹28,999 (10–14 days turnaround, like Om Sai Jewellers with live bullion rates). All packages include sub-second speed (<0.8s), mobile-first design, WhatsApp booking integration, and local SEO."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Om J. Mohite's background, education, and credentials?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Om J. Mohite is a Full Stack Web Developer & UI/UX Designer based in Belagavi, Karnataka. He fell in love with programming in childhood through Mimo, building functional web prototypes since age 13. He achieved 6 A*s in Cambridge IGCSE (10th grade) and is currently studying Class 12 Science. He is also a trained classical Tabla artist (winner of an international Spectacular Performance Award from Rangotsav Celebration) and a two-time Model United Nations delegate in the UNSC and WTO."
+              }
+            },
             {
               "@type": "Question",
               "name": "Who is the best freelance web developer in Belagavi for local businesses?",
@@ -1388,52 +1405,7 @@
             margin-top: auto;
         }
 
-        /* Sticky Mobile Action Bar */
-        .mobile-sticky-bar {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 15, 18, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 10px 16px;
-            z-index: 999;
-            box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
-        }
-        @media (max-width: 768px) {
-            .mobile-sticky-bar {
-                display: flex;
-                gap: 12px;
-            }
-            body { padding-bottom: 70px; }
-        }
-        .mobile-action-btn {
-            flex: 1;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .mobile-action-btn.phone {
-            background: #222;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .mobile-action-btn.whatsapp {
-            background: #25D366;
-            color: #000;
-            font-weight: 700;
-        }
+        
 
         /* Footer Social Buttons */
         .footer-social-links {
@@ -1588,6 +1560,267 @@
             .swipe-hint-inline { display: none !important; }
         }
 
+    
+        /* ========================================================
+           ALL-SWIPING & ULTRA-COMPACT MOBILE/TABLET ARCHITECTURE
+           ======================================================== */
+        section {
+            padding: 5rem 6% 3rem;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-card);
+        }
+        .about-section, .pricing-section {
+            padding: 5rem 6% 3rem !important;
+            background: var(--bg-dark) !important;
+            border-top: 1px solid var(--border-card) !important;
+        }
+
+        /* Swipe Hint Indicator */
+        .swipe-hint-inline {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--accent-orange);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 960px) {
+            .swipe-hint-inline {
+                display: flex !important;
+            }
+
+            /* 1. Metrics Strip: Single row horizontal scroll */
+            .metrics-strip {
+                padding: 1.2rem 0;
+            }
+            .metrics-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 1rem !important;
+                padding: 0 6% !important;
+                scrollbar-width: none !important;
+            }
+            .metrics-grid::-webkit-scrollbar { display: none !important; }
+            .metric-item {
+                flex: 0 0 auto !important;
+                min-width: 170px !important;
+                scroll-snap-align: start !important;
+                padding: 12px 16px !important;
+            }
+
+            /* 2. Services Grid: Peek-swipeable cards */
+            .services-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 1.2rem !important;
+                margin-left: -6% !important;
+                margin-right: -6% !important;
+                padding: 0.5rem 6% 1.5rem !important;
+                scrollbar-width: none !important;
+            }
+            .services-grid::-webkit-scrollbar { display: none !important; }
+            .service-box {
+                flex: 0 0 82% !important;
+                max-width: 82% !important;
+                scroll-snap-align: start !important;
+                scroll-snap-stop: always !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* 3. About Stat Cards: Horizontal swipe strip */
+            .about-highlights-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 1rem !important;
+                margin-left: -6% !important;
+                margin-right: -6% !important;
+                padding: 0.5rem 6% 1rem !important;
+                scrollbar-width: none !important;
+            }
+            .about-highlights-grid::-webkit-scrollbar { display: none !important; }
+            .about-stat-box {
+                flex: 0 0 68% !important;
+                max-width: 68% !important;
+                scroll-snap-align: start !important;
+                scroll-snap-stop: always !important;
+            }
+
+            /* 4. Pricing Grid: Peek-swipeable cards */
+            .pricing-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 1.2rem !important;
+                margin-left: -6% !important;
+                margin-right: -6% !important;
+                padding: 0.5rem 6% 1.5rem !important;
+                scrollbar-width: none !important;
+            }
+            .pricing-grid::-webkit-scrollbar { display: none !important; }
+            .pricing-card {
+                flex: 0 0 82% !important;
+                max-width: 82% !important;
+                scroll-snap-align: start !important;
+                scroll-snap-stop: always !important;
+                margin-bottom: 0 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 3.5rem 5% 2rem !important;
+            }
+            .service-box, .pricing-card {
+                flex: 0 0 84% !important;
+                max-width: 84% !important;
+            }
+            .about-stat-box {
+                flex: 0 0 72% !important;
+                max-width: 72% !important;
+            }
+        }
+
+    
+        /* ========================================================
+           CLIENT REVIEWS & GOOGLE BUSINESS PROFILE TRUST SECTION
+           ======================================================== */
+        .reviews-section {
+            padding: 5rem 6% 3.5rem;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-card);
+        }
+        .google-trust-badge-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 107, 53, 0.04));
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            padding: 1.4rem 2rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+        .google-badge-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .google-badge-icon {
+            font-size: 2.2rem;
+            color: #4285F4;
+        }
+        .google-badge-text h4 {
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .google-stars {
+            color: #FBBC05;
+            font-size: 0.95rem;
+        }
+        .google-badge-text p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+        .review-card:hover {
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-3px);
+        }
+        .review-stars {
+            color: #FBBC05;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+        .review-quote {
+            font-size: 0.95rem;
+            color: #e5e7eb;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+            font-style: italic;
+        }
+        .reviewer-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem;
+        }
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 107, 53, 0.15);
+            color: var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .reviewer-info h5 {
+            font-size: 0.96rem;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .reviewer-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 960px) {
+            .reviews-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 1.2rem !important;
+                margin-left: -6% !important;
+                margin-right: -6% !important;
+                padding: 0.5rem 6% 1.5rem !important;
+                scrollbar-width: none !important;
+            }
+            .reviews-grid::-webkit-scrollbar { display: none !important; }
+            .review-card {
+                flex: 0 0 84% !important;
+                max-width: 84% !important;
+                scroll-snap-align: start !important;
+            }
+        }
+
     </style>
     <link rel="alternate" type="text/markdown" title="LLM Context" href="https://itsomjmohite.netlify.app/llms.txt">
 </head>
@@ -1606,6 +1839,7 @@
             <li><a href="#work">Projects</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#pricing">Packages</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
         </ul>
@@ -1849,6 +2083,9 @@
                 <p class="section-subtitle">Disciplined engineering, musical rhythm, and an obsession with perfection.</p>
             </div>
         </div>
+        <div class="swipe-hint-inline">
+            <i class="fa-solid fa-hand-pointer"></i> Swipe milestones sideways &rarr;
+        </div>
 
         <div class="about-grid">
             <div class="about-text-card">
@@ -2018,19 +2255,108 @@
     </section>
 
 
-    <!-- Local Trust & Location Banner -->
-    <div class="trust-banner">
-        <div class="trust-text">
-            <h3>Based in Belagavi, Serving Growing Businesses</h3>
-            <p>Whether you operate a medical clinic, jewellery showroom, professional consultancy, or retail brand, I help you transform your offline reputation into a high-converting digital presence.</p>
-        </div>
-        <div>
-            <a href="tel:+919604964299" class="btn btn-primary"><i class="fa-solid fa-phone"></i> +91 9604964299</a>
-        </div>
-    </div>
+    
 
 
     <!-- Frequently Asked Questions (FAQ) Section for Search & AI Engines -->
+    
+    <!-- Verified Client Reviews & Google Business Profile Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Client <span>Reviews</span></h2>
+                <p class="section-subtitle">Real feedback from medical practitioners and retail showrooms in Belagavi.</p>
+            </div>
+        </div>
+
+        <div class="swipe-hint-inline">
+            <i class="fa-solid fa-hand-pointer"></i> Swipe reviews sideways &rarr;
+        </div>
+
+        <!-- Google Business Profile Rating Badge -->
+        <div class="google-trust-badge-card">
+            <div class="google-badge-left">
+                <div class="google-badge-icon">
+                    <i class="fa-brands fa-google"></i>
+                </div>
+                <div class="google-badge-text">
+                    <h4>
+                        <span id="googleRatingNum">5.0</span>
+                        <span class="google-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">(<span id="googleReviewCount">18</span>+ Ratings)</span>
+                    </h4>
+                    <p>Verified Local Web Engineering &amp; UI/UX Design • Belagavi, Karnataka</p>
+                </div>
+            </div>
+            <div>
+                <a href="https://maps.google.com/?q=Om+J+Mohite+Web+Development+Belagavi" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="googleReviewBtn" style="padding: 8px 16px; font-size: 0.88rem;">
+                    <i class="fa-solid fa-map-location-dot"></i> View on Google Maps
+                </a>
+            </div>
+        </div>
+
+        <!-- Reviews Grid / Horizontal Swipe -->
+        <div class="reviews-grid" id="reviewsContainer">
+            <!-- Review 1: Dr. Amit Raikar -->
+            <article class="review-card">
+                <div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-quote">
+                        "Om delivered an exceptional, mobile-first website for our clinic. The dual-specialty structure distinguishing family medicine from orthopaedic manual therapy, combined with direct one-tap telephone appointment booking, exceeded our expectations. The site loads instantaneously on patient mobile phones."
+                    </p>
+                </div>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-info">
+                        <h5>Dr. Amit S. Raikar</h5>
+                        <p>Director, Shri Kamakshi Clinic &amp; Orthopaedic Centre</p>
+                        <a href="https://shrikamakshiclinic.netlify.app" target="_blank" style="color: #60a5fa; font-size: 0.78rem; text-decoration: none;">
+                            Visit Live Clinic Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Review 2: Om Sai Jewellers -->
+            <article class="review-card">
+                <div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-quote">
+                        "The automated live gold and silver bullion ticker and interactive weight-to-cost calculator developed by Om brought daily price transparency to our customers in Belagavi. It has streamlined customer inquiries directly to our showroom WhatsApp."
+                    </p>
+                </div>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;">S</div>
+                    <div class="reviewer-info">
+                        <h5>Om Sai Jewellers</h5>
+                        <p>Jewellery Showroom Leadership • Shahapur, Belagavi</p>
+                        <a href="https://omsaijewellersbgm.netlify.app" target="_blank" style="color: #60a5fa; font-size: 0.78rem; text-decoration: none;">
+                            Visit Live Jewellery Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
     <section id="faq" class="faq-section">
         <div class="section-header" style="justify-content: center; text-align: center;">
             <div>
@@ -2148,6 +2474,7 @@
     </footer>
 
     <!-- Load Centralized Projects Data -->
+    <script src="portfolio-data.js"></script>
     <script src="projects.js"></script>
 
     <!-- Interactive JavaScript: Dynamic Project Renderer & Slider -->
@@ -2233,6 +2560,19 @@
             `).join('');
         }
 
+        // Dynamic Pricing Hydration from projects.js
+        if (typeof portfolioPricing !== 'undefined' && Array.isArray(portfolioPricing)) {
+            const pCards = document.querySelectorAll('.pricing-card');
+            portfolioPricing.forEach((item, idx) => {
+                if (pCards[idx]) {
+                    const amt = pCards[idx].querySelector('.price-wrap .amount');
+                    if (amt && item.price) amt.textContent = item.price;
+                    const title = pCards[idx].querySelector('h3');
+                    if (title && item.title) title.textContent = item.title;
+                }
+            });
+        }
+
         // 3. Carousel Slider Controls (Swipe & Navigation Buttons)
         const prevBtn = document.getElementById('prevSlideBtn');
         const nextBtn = document.getElementById('nextSlideBtn');
@@ -2274,15 +2614,5 @@
         }
     </script>
 
-    <!-- Floating Mobile Quick-Action Contact Bar (Smartphone Optimized) -->
-    <div class="mobile-sticky-bar" aria-label="Mobile quick actions">
-        <a href="tel:+919604964299" class="mobile-action-btn phone">
-            <i class="fa-solid fa-phone"></i> Call
-        </a>
-        <a href="https://wa.me/919604964299?text=Hi%20Om,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="mobile-action-btn whatsapp">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-    </div>
-
-</body>
+    </body>
 </html>

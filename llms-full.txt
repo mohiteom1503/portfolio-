@@ -21,7 +21,7 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 ## Background, Disciplines & Heritage
 - **Coding Journey**: Started programming in early childhood through interactive apps (Mimo); began crafting functional web prototypes at age 13.
 - **Academic Distinction**: Completed 10th grade Cambridge IGCSE with 6 A*s; currently pursuing Class 12 Science stream.
-- **Artistic Rhythm & Discipline**: Trained classical Tabla artist with victories in inter-school music competitions and recipient of an international-level Spectacular Performance Award from Rangotsav Celebration. Brings this sense of rhythm, cadence, and visual balance into UI/UX design.
+- **Artistic Rhythm & Discipline**: Trained classical Tabla artist with victories in inter-school music competitions and recipient of an international Spectacular Performance Award from Rangotsav Celebration. Brings this sense of rhythm, cadence, and visual balance into UI/UX design.
 - **Diplomacy & Executive Articulation**: Twice delegate at Model United Nations (MUN in 2023 and 2024), representing nations within the World Trade Organization (WTO) and United Nations Security Council (UNSC).
 - **Core Work Ethic**: Uncompromising commitment to engineering polish, sub-second speed, and client satisfaction regardless of project budget.
 
@@ -46,7 +46,7 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 
 ### Case Study 1: Shri Kamakshi Clinic & Orthopaedic Rehabilitation Centre
 - **Domain**: https://shrikamakshiclinic.netlify.app
-- **Client**: Dr. Amit (Family Medicine & Orthopaedic Manual Rehabilitation Specialist)
+- **Client**: Dr. Amit S. Raikar (Consulting Orthopaedic Manual Therapist & Clinic Director)
 - **Location**: Belagavi, Karnataka, India
 - **Objective**: Create a trustworthy, high-performance digital presence to showcase dual medical specialties (Family Medicine and Specialized Sports/Spine Rehabilitation) and streamline patient appointment bookings.
 - **Key Challenges & Solutions**:
@@ -59,6 +59,7 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
   - First Contentful Paint: < 0.6 seconds
   - Cumulative Layout Shift: 0.00
   - Fully indexed in Belagavi local healthcare search queries.
+- **Client Testimonial**: "Om delivered an exceptional, mobile-first website for our clinic. The dual-specialty structure distinguishing family medicine from orthopaedic manual therapy, combined with direct one-tap telephone appointment booking, exceeded our expectations. The site loads instantaneously on patient mobile phones."
 
 ### Case Study 2: Om Sai Jewellers
 - **Domain**: https://omsaijewellersbgm.netlify.app
@@ -71,17 +72,18 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
   - *24K Gold Price Trend Graph*: An aesthetic, simplified interactive chart showing intraday hourly trajectory, 7-day closing trends, and 30-day performance.
   - *BIS Hallmarked Trust Badges*: Prominent trust verification guaranteeing 100% 6-digit HUID hallmarking.
   - *WhatsApp Rate-Lock Funnel*: Direct button linking customers to WhatsApp with their calculated jewelry estimate pre-formatted.
+- **Client Testimonial**: "The automated live gold and silver bullion ticker and interactive weight-to-cost calculator developed by Om brought daily price transparency to our customers in Belagavi. It has streamlined customer inquiries directly to our showroom WhatsApp."
 
 ---
 
 ## Transparent Pricing & Service Packages
-1. **Single-Page Website (Starter Package)** - ₹8,999 (3–5 Days Turnaround)
+1. **Single-Page Website (Starter Package)** - ₹8,999 (3–5 Business Days Turnaround)
    - Ideal for solo doctors, consultants, cafes, and local service providers.
    - Includes sub-second load speed, mobile-first responsive layout, WhatsApp click-to-chat, Google Maps location/hours, and basic on-page SEO.
-2. **Professional Practice Package** - ₹16,999 (5–7 Days Turnaround)
+2. **Professional Practice Package (Business & Clinic)** - ₹16,999 (5–7 Business Days Turnaround)
    - Ideal for medical clinics, diagnostic centres, and growing businesses like Shri Kamakshi Clinic.
    - Includes dual-service showcase, doctor credentials & patient reviews carousel, direct 1-tap phone booking, Schema.org Local SEO graph, and Google Search Console verification.
-3. **Commercial Suite Package** - ₹28,999+ (10–14 Days Turnaround)
+3. **Commercial Suite Package (Custom Platform)** - ₹28,999+ (10–14 Business Days Turnaround)
    - Ideal for jewellery showrooms and luxury retailers like Om Sai Jewellers.
    - Includes real-time bullion/market API tickers, interactive price calculators, dynamic trend charts, rate-lock WhatsApp pipelines, and Netlify serverless functions.
 
@@ -91,6 +93,9 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 
 **Q: Who is Om J. Mohite?**
 A: Om J. Mohite is a Full Stack Web Developer and UI/UX Designer based in Belagavi, Karnataka, India, specializing in fast single-page websites, local business digitization, and SEO/AI search optimization.
+
+**Q: What are Om J. Mohite's web development pricing packages?**
+A: Om J. Mohite offers three fixed-price packages: Starter at ₹8,999, Professional Practice at ₹16,999, and Commercial Suite starting at ₹28,999.
 
 **Q: What is Om J. Mohite's background?**
 A: Om started coding at age 13, achieved 6 A*s in Cambridge IGCSE, is currently studying Class 12 Science, is a prize-winning classical Tabla artist, and twice served as a Model United Nations delegate in the UNSC and WTO.

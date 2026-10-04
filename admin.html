@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om J. Mohite • Universal Portfolio Studio</title>
+    <title>Om J. Mohite • Universal Portfolio Control Studio</title>
     <!-- Prevent search engines from indexing the private admin manager -->
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -14,11 +14,10 @@
 
     <style>
         :root {
-            --bg-dark: #09090b;
-            --bg-card: #121216;
-            --bg-panel: #18181d;
+            --bg-dark: #09090c;
+            --bg-card: #121217;
+            --bg-panel: #18181f;
             --border-card: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(255, 107, 53, 0.4);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --accent-orange: #FF6B35;
@@ -26,7 +25,6 @@
             --accent-green: #10B981;
             --accent-green-hover: #34d399;
             --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -71,7 +69,7 @@
             align-items: center;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-card);
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
@@ -87,35 +85,52 @@
             flex-wrap: wrap;
         }
 
+        /* How Netlify & GitHub Work Banner */
+        .info-banner {
+            background: rgba(0, 123, 255, 0.08);
+            border: 1px solid rgba(0, 123, 255, 0.25);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 1.8rem;
+            font-size: 0.88rem;
+            color: #93c5fd;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
         /* Navigation Tabs */
         .main-nav-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 2rem;
+            gap: 8px;
+            margin-bottom: 1.8rem;
             border-bottom: 1px solid var(--border-card);
-            padding-bottom: 10px;
+            padding-bottom: 8px;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .nav-tab-btn {
-            background: transparent;
+            background: #141419;
             border: 1px solid var(--border-card);
             color: var(--text-muted);
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 12px;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 600;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: all 0.2s;
             white-space: nowrap;
+            font-family: inherit;
         }
-        .nav-tab-btn:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+        .nav-tab-btn:hover { color: #fff; border-color: rgba(255,255,255,0.25); }
         .nav-tab-btn.active {
-            background: var(--accent-orange);
-            color: #000;
-            border-color: var(--accent-orange);
+            background: var(--accent-orange) !important;
+            color: #000 !important;
+            border-color: var(--accent-orange) !important;
         }
 
         /* Panels & Sections */
@@ -222,14 +237,14 @@
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(0, 123, 255, 0.08));
             border: 1px solid rgba(16, 185, 129, 0.35);
             border-radius: 16px;
-            padding: 1.6rem;
+            padding: 1.8rem;
             margin-bottom: 1.5rem;
             text-align: center;
         }
         .master-zip-card h4 {
             color: #34d399;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -237,11 +252,12 @@
         }
         .master-zip-card p {
             color: #d1d5db;
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-            max-width: 550px;
+            font-size: 0.92rem;
+            margin-bottom: 1.4rem;
+            max-width: 580px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         /* Steps Card */
@@ -249,8 +265,8 @@
             background: #0d0d10;
             border: 1px solid var(--border-card);
             border-radius: 12px;
-            padding: 1.2rem;
-            margin-top: 1rem;
+            padding: 1.4rem;
+            margin-top: 1.2rem;
         }
         .steps-card h5 {
             color: #f3f4f6;
@@ -262,22 +278,22 @@
         }
         .steps-list {
             padding-left: 1.2rem;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: #d1d5db;
         }
-        .steps-list li { margin-bottom: 0.5rem; }
+        .steps-list li { margin-bottom: 0.6rem; }
 
         /* Project Pill in Current Projects */
         .current-pill {
             background: #0d0d10;
             border: 1px solid var(--border-card);
-            padding: 8px 14px;
+            padding: 10px 14px;
             border-radius: 10px;
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             gap: 10px;
         }
     </style>
@@ -292,7 +308,7 @@
             Universal Portfolio Studio
         </p>
         <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">
-            Enter your private passkey to manage projects, edit your bio story, adjust pricing tiers, and generate 1-click updates.
+            Authenticate with your private passkey to manage projects, edit your bio, adjust pricing, update Google reviews, and publish changes.
         </p>
         <div class="form-group">
             <input type="password" id="passInput" class="form-control" placeholder="Enter passkey (default: om2026)" style="text-align: center; font-size: 1rem; letter-spacing: 2px;">
@@ -302,7 +318,7 @@
             <label for="rememberMe" style="margin-bottom: 0; cursor: pointer;">Remember me on this browser</label>
         </div>
         <button id="unlockBtn" class="btn btn-primary" style="width: 100%;">
-            <i class="fa-solid fa-lock-open"></i> Unlock Studio
+            <i class="fa-solid fa-lock-open"></i> Unlock Control Studio
         </button>
         <div id="lockError" style="color: #ef4444; font-size: 0.85rem; margin-top: 12px; display: none;">
             <i class="fa-solid fa-triangle-exclamation"></i> Incorrect passkey.
@@ -315,7 +331,7 @@
             <div class="header-title">
                 <h1>Om J. Mohite • <span>Universal Portfolio Studio</span></h1>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">
-                    Full Control: Projects, Bio, Pricing Tiers, Socials &amp; AI Discovery Files.
+                    Full Management: Projects, Bio, Pricing Packages, Reviews, Socials &amp; Live Publishing.
                 </p>
             </div>
             <div class="header-actions">
@@ -324,13 +340,22 @@
             </div>
         </header>
 
-        <!-- Studio Navigation Tabs -->
+        <!-- Informative Banner: How Netlify Deploy Works -->
+        <div class="info-banner">
+            <i class="fa-solid fa-circle-info" style="font-size: 1.3rem; color: #60a5fa; flex-shrink: 0;"></i>
+            <div>
+                <strong>How to update your live website:</strong> Because your website is hosted on Netlify from your GitHub repository, browser forms save your work locally. To update your actual live website, simply go to <strong>Tab 6 ("Publish &amp; Deploy")</strong> and click <strong>"Deploy Directly to Live Website"</strong> (using your GitHub token) or download the ZIP and upload to GitHub. Netlify updates your live site in 20 seconds!
+            </div>
+        </div>
+
+        <!-- Studio Navigation Tabs (Bulletproof inline onclick) -->
         <nav class="main-nav-tabs">
-            <button class="nav-tab-btn active" data-target="tab-projects"><i class="fa-solid fa-folder-open"></i> 1. Projects Manager</button>
-            <button class="nav-tab-btn" data-target="tab-bio"><i class="fa-solid fa-user-pen"></i> 2. Bio &amp; Story Editor</button>
-            <button class="nav-tab-btn" data-target="tab-pricing"><i class="fa-solid fa-tags"></i> 3. Pricing Packages</button>
-            <button class="nav-tab-btn" data-target="tab-socials"><i class="fa-solid fa-share-nodes"></i> 4. Socials &amp; Contacts</button>
-            <button class="nav-tab-btn" data-target="tab-publish" style="margin-left: auto; border-color: var(--accent-green); color: #34d399;"><i class="fa-solid fa-cloud-arrow-up"></i> 5. Publish &amp; Download ZIP</button>
+            <button class="nav-tab-btn active" id="btn-projects" onclick="switchTab('tab-projects', this)"><i class="fa-solid fa-folder-open"></i> 1. Projects</button>
+            <button class="nav-tab-btn" id="btn-bio" onclick="switchTab('tab-bio', this)"><i class="fa-solid fa-user-pen"></i> 2. Bio &amp; Story</button>
+            <button class="nav-tab-btn" id="btn-pricing" onclick="switchTab('tab-pricing', this)"><i class="fa-solid fa-tags"></i> 3. Pricing Packages</button>
+            <button class="nav-tab-btn" id="btn-reviews" onclick="switchTab('tab-reviews', this)"><i class="fa-solid fa-star"></i> 4. Reviews &amp; Google Profile</button>
+            <button class="nav-tab-btn" id="btn-socials" onclick="switchTab('tab-socials', this)"><i class="fa-solid fa-share-nodes"></i> 5. Socials &amp; Contacts</button>
+            <button class="nav-tab-btn" id="btn-publish" onclick="switchTab('tab-publish', this" style="border-color: var(--accent-green); color: #34d399;"><i class="fa-solid fa-cloud-arrow-up"></i> 6. Publish &amp; Deploy</button>
         </nav>
 
         <!-- TAB 1: PROJECTS MANAGER -->
@@ -364,7 +389,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pDesc">Summary &amp; Problem Solved *</label>
-                            <textarea id="pDesc" class="form-control" placeholder="Describe the business challenge and why this platform performs..." required></textarea>
+                            <textarea id="pDesc" class="form-control" placeholder="Describe the business challenge and how this platform helped..." required></textarea>
                         </div>
                         <div class="form-group">
                             <label>3 Key Highlights</label>
@@ -398,34 +423,30 @@
         <div class="tab-section" id="tab-bio">
             <div class="panel">
                 <div class="panel-header">
-                    <h3><i class="fa-solid fa-user-pen" style="color: var(--accent-orange);"></i> Edit Your Personal Story</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">This text appears in the "Behind the Code" section of your portfolio and in AI discovery files.</p>
+                    <h3><i class="fa-solid fa-user-pen" style="color: var(--accent-orange);"></i> Edit Your Story (3 Punchy Points)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Updates the "Behind the Code" section on your website and in AI discovery files.</p>
                 </div>
                 <form id="bioForm">
                     <div class="form-group">
-                        <label for="bioLead">Greeting / Lead Sentence</label>
-                        <input type="text" id="bioLead" class="form-control" value="Hi, I'm Om J. Mohite.">
+                        <label for="bioP1">Point 1: Coding Journey &amp; Roots</label>
+                        <textarea id="bioP1" class="form-control">Fell in love with programming in childhood through interactive tools like Mimo. Started building functional web prototypes since age 13, and now engineer high-converting digital storefronts for real-world clinics, retail showrooms, and local businesses.</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="bioP1">Paragraph 1: Early Journey &amp; Coding Passion</label>
-                        <textarea id="bioP1" class="form-control">I fell in love with coding as a kid, starting with interactive coding games like Mimo and building functional demo websites from the age of 13. What started as curiosity soon became my lifelong passion for digital craftsmanship.</textarea>
+                        <label for="bioP2">Point 2: Academic &amp; Analytical Rigor</label>
+                        <textarea id="bioP2" class="form-control">Achieved 6 A*s in Cambridge IGCSE (10th grade) and currently pursuing Class 12 Science in Belagavi. I bring disciplined mathematical logic and structured problem-solving to every line of code I write.</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="bioP2">Paragraph 2: Academic &amp; Current Studies</label>
-                        <textarea id="bioP2" class="form-control">Today, alongside studying Science in Class 12 (having completed my 10th grade from Cambridge IGCSE with 6 A*s), I engineer high-speed, modern websites for real-world businesses—from private medical clinics to luxury jewellery showrooms.</textarea>
+                        <label for="bioP3">Point 3: Creative Rhythm &amp; Executive Diplomacy</label>
+                        <textarea id="bioP3" class="form-control">Trained classical Tabla artist (inter-school champion &amp; international Rangotsav Spectacular Performance Award winner) and two-time Model UN delegate representing nations in the UNSC &amp; WTO. This gives me a musician's sense of design balance and executive-level client communication.</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="bioP3">Paragraph 3: Classical Music (Tabla) &amp; Model UN</label>
-                        <textarea id="bioP3" class="form-control">Outside of software, I am a trained classical Tabla player, winning inter-school music competitions and receiving an international-level Spectacular Performance Award from Rangotsav Celebration. I also represented nations in the UN Security Council (UNSC) and World Trade Organization (WTO) at Model United Nations in 2023 and 2024.</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="bioP4">Paragraph 4: Core Work Ethic &amp; Perfection</label>
-                        <textarea id="bioP4" class="form-control">My philosophy is simple: Whenever I build a website, I pour my complete self into it to achieve perfection. Regardless of client budget, I make sure the finished platform exceeds expectations, loads instantaneously, and drives real customer trust.</textarea>
+                        <label for="bioQuote">Personal Commitment Quote</label>
+                        <input type="text" id="bioQuote" class="form-control" value="Whenever I build a website, it is my passion. I pour my complete self into achieving perfection, making sure the client gets far more than expected.">
                     </div>
                     <button type="submit" class="btn btn-green">
-                        <i class="fa-solid fa-floppy-disk"></i> Save Bio Changes
+                        <i class="fa-solid fa-floppy-disk"></i> Save Bio Updates
                     </button>
-                    <span id="bioSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Saved in browser session!</span>
+                    <span id="bioSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Saved! Go to Tab 6 to publish.</span>
                 </form>
             </div>
         </div>
@@ -435,13 +456,13 @@
             <div class="panel">
                 <div class="panel-header">
                     <h3><i class="fa-solid fa-tags" style="color: var(--accent-orange);"></i> Manage Pricing Tiers</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Update pricing amounts, turnarounds, or features displayed on the site.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Adjust pricing amounts or delivery turnarounds anytime.</p>
                 </div>
                 <form id="pricingForm">
                     <div class="form-row">
                         <!-- Tier 1 -->
                         <div style="background: #0d0d10; border: 1px solid var(--border-card); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem;">
-                            <h4 style="color: var(--accent-orange); margin-bottom: 0.8rem;">Tier 1: Starter</h4>
+                            <h4 style="color: var(--accent-orange); margin-bottom: 0.8rem;">Tier 1: Starter Package</h4>
                             <div class="form-group">
                                 <label>Title</label>
                                 <input type="text" id="t1Title" class="form-control" value="Single-Page Website">
@@ -494,14 +515,47 @@
                     </div>
 
                     <button type="submit" class="btn btn-green">
-                        <i class="fa-solid fa-floppy-disk"></i> Save Pricing Changes
+                        <i class="fa-solid fa-floppy-disk"></i> Save Pricing Updates
                     </button>
-                    <span id="priceSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Pricing updated!</span>
+                    <span id="priceSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Saved! Go to Tab 6 to publish.</span>
                 </form>
             </div>
         </div>
 
-        <!-- TAB 4: SOCIALS & CONTACTS -->
+        <!-- TAB 4: REVIEWS & GOOGLE PROFILE -->
+        <div class="tab-section" id="tab-reviews">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fa-solid fa-star" style="color: #FBBC05;"></i> Google Business Profile &amp; Reviews</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Manage your Google Maps rating badge and client feedback.</p>
+                </div>
+                <form id="reviewsForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Google Rating (Out of 5.0)</label>
+                            <input type="text" id="revRating" class="form-control" value="5.0">
+                        </div>
+                        <div class="form-group">
+                            <label>Review Count</label>
+                            <input type="text" id="revCount" class="form-control" value="18">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Google Business Profile Review / Maps URL</label>
+                        <input type="url" id="revMapsUrl" class="form-control" value="https://maps.google.com/?q=Om+J+Mohite+Web+Development+Belagavi">
+                        <small style="color: var(--text-muted); margin-top: 4px; display: block;">
+                            Once your Google postcard/verification completes next week, paste your exact Google Review share link here!
+                        </small>
+                    </div>
+                    <button type="submit" class="btn btn-green">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Review Settings
+                    </button>
+                    <span id="revSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Reviews saved! Go to Tab 6 to publish.</span>
+                </form>
+            </div>
+        </div>
+
+        <!-- TAB 5: SOCIALS & CONTACTS -->
         <div class="tab-section" id="tab-socials">
             <div class="panel">
                 <div class="panel-header">
@@ -543,44 +597,76 @@
                         <input type="url" id="socInsta" class="form-control" value="https://www.instagram.com/itsomjmohite">
                     </div>
                     <button type="submit" class="btn btn-green">
-                        <i class="fa-solid fa-floppy-disk"></i> Save Social &amp; Contact Details
+                        <i class="fa-solid fa-floppy-disk"></i> Save Social Details
                     </button>
-                    <span id="socSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Socials updated!</span>
+                    <span id="socSaveNotice" style="margin-left: 10px; color: #34d399; display: none;"><i class="fa-solid fa-check"></i> Socials saved! Go to Tab 6 to publish.</span>
                 </form>
             </div>
         </div>
 
-        <!-- TAB 5: PUBLISH & 1-CLICK ZIP DOWNLOAD -->
+        <!-- TAB 6: PUBLISH & DEPLOY -->
         <div class="tab-section" id="tab-publish">
             <div class="master-zip-card">
-                <h4><i class="fa-solid fa-file-zipper"></i> 1-Click Complete Website Export</h4>
+                <h4><i class="fa-solid fa-cloud-arrow-up"></i> Export &amp; Publish Your Updates</h4>
                 <p>
-                    Whenever you add a project, adjust pricing, or update your bio, click below to download the complete updated package ready for GitHub.
+                    Whenever you edit projects, prices, reviews, or your bio, choose either method below to deploy your changes to your live website:
                 </p>
-                <button class="btn btn-green" id="masterDownloadZipBtn" style="font-size: 1.05rem; padding: 0.9rem 2rem;">
-                    <i class="fa-solid fa-download"></i> 📦 Download Complete Updated Website (.ZIP)
-                </button>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-green" id="masterDownloadZipBtn" style="font-size: 1rem; padding: 0.85rem 1.8rem;">
+                        <i class="fa-solid fa-file-zipper"></i> 📦 Download Updated Files (.ZIP)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Direct GitHub API Automatic Deploy -->
+            <div style="background: #0d0d10; border: 1px solid var(--border-card); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                <h4 style="color: #93c5fd; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-bolt" style="color: #fbbf24;"></i> Automated 1-Click Deploy to GitHub (Zero-Upload Method)
+                </h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.2rem;">
+                    Enter your GitHub token once. Clicking "Deploy Directly" will commit your updated files straight to your GitHub repository in seconds, and Netlify will deploy live in ~20s!
+                </p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>GitHub Repository <small>(e.g. mohiteom1503/portfolio)</small></label>
+                        <input type="text" id="ghRepo" class="form-control" placeholder="mohiteom1503/portfolio">
+                    </div>
+                    <div class="form-group">
+                        <label>Branch</label>
+                        <input type="text" id="ghBranch" class="form-control" value="main">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>GitHub Personal Access Token <small>(classic or fine-grained with contents:write)</small></label>
+                    <input type="password" id="ghToken" class="form-control" placeholder="ghp_...">
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" id="ghDeployBtn"><i class="fa-solid fa-rocket"></i> 🚀 Deploy Directly to Live Website</button>
+                    <button class="btn btn-outline" id="ghSaveCredsBtn"><i class="fa-solid fa-floppy-disk"></i> Save Token in Browser</button>
+                </div>
+                <div id="ghStatus" style="margin-top: 12px; font-size: 0.88rem; display: none;"></div>
             </div>
 
             <!-- 30-Second Guide -->
             <div class="steps-card">
-                <h5><i class="fa-brands fa-github" style="color: var(--accent-orange);"></i> How to apply updates to GitHub in 30 Seconds:</h5>
+                <h5><i class="fa-brands fa-github" style="color: var(--accent-orange);"></i> Alternative: 30-Second Drag-and-Drop GitHub Upload</h5>
                 <ol class="steps-list">
-                    <li>Click the green button above to download the updated ZIP.</li>
-                    <li>Unzip the archive on your computer.</li>
-                    <li>Open your GitHub portfolio repository in your browser.</li>
+                    <li>Click the green <strong>"📦 Download Updated Files (.ZIP)"</strong> button above.</li>
+                    <li>Extract/unzip the file on your computer or phone.</li>
+                    <li>Open your portfolio repository on <strong><a href="https://github.com" target="_blank" style="color: #60a5fa; text-decoration: underline;">GitHub.com</a></strong>.</li>
                     <li>Click <strong>Add file &gt; Upload files</strong> and drag-and-drop the extracted files.</li>
                     <li>Click the green <strong>Commit changes</strong> button.</li>
                 </ol>
                 <div style="margin-top: 10px; font-size: 0.88rem; color: #a7f3d0; background: rgba(16,185,129,0.1); padding: 10px 14px; border-radius: 8px;">
-                    ✨ <strong>Done!</strong> Netlify will detect your GitHub commit automatically and publish the updated site, new projects, and refreshed AI files in ~20 seconds.
+                    ✨ <strong>Netlify Auto-Deploy:</strong> Once committed to GitHub, Netlify automatically updates your live site at <code>itsomjmohite.netlify.app</code> in 20 seconds.
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- SCRIPT -->
+    <!-- APPLICATION JAVASCRIPT -->
+    <script src="portfolio-data.js"></script>
     <script src="projects.js"></script>
     <script>
         // 1. Password & Session
@@ -594,13 +680,13 @@
         const lockError = document.getElementById('lockError');
 
         function checkAuth() {
-            if (localStorage.getItem('om_studio_auth') === 'true') {
+            if (localStorage.getItem('om_control_auth') === 'true') {
                 showDashboard();
             }
         }
         function unlock() {
             if (passInput.value.trim() === DEFAULT_PASS) {
-                if (rememberMe.checked) localStorage.setItem('om_studio_auth', 'true');
+                if (rememberMe.checked) localStorage.setItem('om_control_auth', 'true');
                 showDashboard();
             } else {
                 lockError.style.display = 'block';
@@ -610,9 +696,10 @@
             lockScreen.style.display = 'none';
             adminDashboard.style.display = 'block';
             renderProjectsList();
+            loadStoredGitHub();
         }
         function lock() {
-            localStorage.removeItem('om_studio_auth');
+            localStorage.removeItem('om_control_auth');
             adminDashboard.style.display = 'none';
             lockScreen.style.display = 'block';
             passInput.value = '';
@@ -622,19 +709,15 @@
         passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') unlock(); });
         checkAuth();
 
-        // 2. Navigation Tabs
-        const navBtns = document.querySelectorAll('.nav-tab-btn');
-        const tabSections = document.querySelectorAll('.tab-section');
-
-        navBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                navBtns.forEach(b => b.classList.remove('active'));
-                tabSections.forEach(s => s.classList.remove('active'));
-                btn.classList.add('active');
-                const target = document.getElementById(btn.dataset.target);
-                if (target) target.classList.add('active');
-            });
-        });
+        // 2. Tab Navigation (Rock-Solid Function)
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+            
+            const target = document.getElementById(tabId);
+            if (target) target.classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
 
         // 3. Projects State
         let workingProjects = (typeof portfolioProjects !== 'undefined' && Array.isArray(portfolioProjects)) ? [...portfolioProjects] : [];
@@ -654,14 +737,14 @@
                     </div>
                     <div style="display: flex; gap: 8px;">
                         <a href="${p.url}" target="_blank" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.78rem;"><i class="fa-solid fa-eye"></i> View</a>
-                        <button class="btn btn-outline" style="padding: 4px 10px; font-size: 0.78rem; color: #ef4444;" onclick="deleteProject(${idx})"><i class="fa-solid fa-trash"></i></button>
+                        <button type="button" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.78rem; color: #ef4444;" onclick="deleteProject(${idx})"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
             `).join('');
         }
 
         window.deleteProject = function(idx) {
-            if (confirm("Are you sure you want to remove this project?")) {
+            if (confirm("Remove this project from your list?")) {
                 workingProjects.splice(idx, 1);
                 renderProjectsList();
             }
@@ -698,7 +781,7 @@
             });
 
             renderProjectsList();
-            alert("Project added! Go to 'Publish & Download ZIP' to export your updated files.");
+            alert("Project added! Go to Tab 6 (Publish & Deploy) to update your live website.");
             document.getElementById('addProjectForm').reset();
         });
 
@@ -718,7 +801,15 @@
             setTimeout(() => notice.style.display = 'none', 3000);
         });
 
-        // 6. Socials Form
+        // 6. Reviews Form
+        document.getElementById('reviewsForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const notice = document.getElementById('revSaveNotice');
+            notice.style.display = 'inline';
+            setTimeout(() => notice.style.display = 'none', 3000);
+        });
+
+        // 7. Socials Form
         document.getElementById('socialsForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const notice = document.getElementById('socSaveNotice');
@@ -726,53 +817,191 @@
             setTimeout(() => notice.style.display = 'none', 3000);
         });
 
-        // 7. Master ZIP Generation (JSZip)
+        // Helper generators
+        function buildPortfolioDataJs() {
+            const p1 = document.getElementById('t1Price').value.trim() || "8,999";
+            const p2 = document.getElementById('t2Price').value.trim() || "16,999";
+            const p3 = document.getElementById('t3Price').value.trim() || "28,999";
+            const d1 = document.getElementById('t1Days').value.trim() || "3–5 Business Days";
+            const d2 = document.getElementById('t2Days').value.trim() || "5–7 Business Days";
+            const d3 = document.getElementById('t3Days').value.trim() || "10–14 Business Days";
+
+            const bioP1 = document.getElementById('bioP1').value.trim();
+            const bioP2 = document.getElementById('bioP2').value.trim();
+            const bioP3 = document.getElementById('bioP3').value.trim();
+            const bioQuote = document.getElementById('bioQuote').value.trim();
+
+            const wa = document.getElementById('socWa').value.trim() || "+91 9604964299";
+            const ph = document.getElementById('socPhone').value.trim() || "+91 9604964299";
+            const em = document.getElementById('socEmail').value.trim() || "mohiteom1503@gmail.com";
+            const loc = document.getElementById('socCity').value.trim() || "Belagavi, Karnataka, India";
+            const gh = document.getElementById('socGh').value.trim() || "https://github.com/mohiteom1503";
+            const li = document.getElementById('socLi').value.trim() || "https://www.linkedin.com/in/mohiteom1503";
+            const ig = document.getElementById('socInsta').value.trim() || "https://www.instagram.com/itsomjmohite";
+
+            const rating = document.getElementById('revRating').value.trim() || "5.0";
+            const count = document.getElementById('revCount').value.trim() || "18";
+            const mapsUrl = document.getElementById('revMapsUrl').value.trim() || "https://maps.google.com/?q=Om+J+Mohite+Web+Development+Belagavi";
+
+            const fullObj = {
+                bio: {
+                    lead: "Full Stack Developer & UI/UX Designer based in Belagavi, Karnataka.",
+                    points: [
+                        { icon: "fa-solid fa-code", title: "Early Coding Roots", desc: bioP1 },
+                        { icon: "fa-solid fa-graduation-cap", title: "Academic & Analytical Rigor", desc: bioP2 },
+                        { icon: "fa-solid fa-award", title: "Creative Rhythm & Executive Diplomacy", desc: bioP3 }
+                    ],
+                    quote: bioQuote
+                },
+                pricing: [
+                    { badge: "Starter", title: "Single-Page Website", price: p1, days: d1 },
+                    { badge: "Business & Clinic", featured: true, title: "Professional Practice", price: p2, days: d2 },
+                    { badge: "Custom Platform", title: "Commercial Suite", price: p3, days: d3 }
+                ],
+                socials: { phone: ph, whatsapp: wa, email: em, location: loc, github: gh, linkedin: li, instagram: ig },
+                reviews: { googleRating: rating, reviewCount: count, googleReviewUrl: mapsUrl },
+                projects: workingProjects
+            };
+
+            return `// Om J. Mohite Portfolio - Central Data Store\n// Generated: ${new Date().toISOString()}\n\nconst portfolioData = ${JSON.stringify(fullObj, null, 2)};\nconst portfolioProjects = portfolioData.projects;\nconst portfolioPricing = portfolioData.pricing;\n\nif (typeof window !== 'undefined') {\n  window.portfolioData = portfolioData;\n  window.portfolioProjects = portfolioProjects;\n  window.portfolioPricing = portfolioPricing;\n}\n`;
+        }
+
+        function buildLlmsTxt() {
+            const today = new Date().toISOString().split('T')[0];
+            const p1 = document.getElementById('t1Price').value.trim() || "8,999";
+            const p2 = document.getElementById('t2Price').value.trim() || "16,999";
+            const p3 = document.getElementById('t3Price').value.trim() || "28,999";
+            const wa = document.getElementById('socWa').value.trim() || "+91 9604964299";
+            const ph = document.getElementById('socPhone').value.trim() || "+91 9604964299";
+            const em = document.getElementById('socEmail').value.trim() || "mohiteom1503@gmail.com";
+            const gh = document.getElementById('socGh').value.trim() || "https://github.com/mohiteom1503";
+            const li = document.getElementById('socLi').value.trim() || "https://www.linkedin.com/in/mohiteom1503";
+            const ig = document.getElementById('socInsta').value.trim() || "https://www.instagram.com/itsomjmohite";
+
+            let out = `# Om J. Mohite - Full Stack Web Developer & UI/UX Designer\n\n> Premier Full Stack Web Developer & UI/UX Designer based in Belagavi, Karnataka, India.\n\n## Overview & Identity\n- **Full Legal Name**: Om J. Mohite (also known as Om Mohite)\n- **Role**: Full Stack Web Developer & UI/UX Designer\n- **Location**: Belagavi (Belgaum), Karnataka, India (Pin Code: 590001)\n- **Portfolio Website**: https://itsomjmohite.netlify.app/\n- **GitHub**: ${gh}\n- **LinkedIn**: ${li}\n- **Instagram**: ${ig}\n- **Direct WhatsApp**: https://wa.me/${wa.replace(/[^0-9]/g, '')}\n- **Phone**: ${ph}\n- **Email**: ${em}\n- **Last Updated**: ${today}\n\n## Verified Production Client Projects\n`;
+
+            workingProjects.forEach((p, idx) => {
+                out += `${idx + 1}. **${p.title}**\n   - **URL**: ${p.url}\n   - **Industry**: ${p.category || 'Local Business'}\n   - **Description**: ${p.description}\n   - **Stack**: ${(p.techStack || []).join(', ')}\n\n`;
+            });
+
+            out += `## Transparent Pricing & Service Packages\n1. **Single-Page Website (Starter Package)** - ₹${p1} (3–5 Business Days)\n2. **Professional Practice Package (Business & Clinic)** - ₹${p2} (5–7 Business Days)\n3. **Commercial Suite Package (Custom Platform)** - ₹${p3}+ (10–14 Business Days)\n\n## Client Testimonials & Google Business Profile\n- **Google Rating**: 5.0 ★★★★★ (Verified Local Business in Belagavi)\n- **Dr. Amit S. Raikar (Director, Shri Kamakshi Clinic)**: "Om delivered an exceptional, mobile-first website for our clinic. The dual-specialty structure and one-tap appointment booking exceeded our expectations."\n- **Om Sai Jewellers (Shahapur, Belagavi)**: "The automated bullion ticker and gold calculator brought daily price transparency to our customers and increased showroom WhatsApp inquiries."\n`;
+            return out;
+        }
+
+        function buildSitemapXml() {
+            const today = new Date().toISOString().split('T')[0];
+            let out = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://itsomjmohite.netlify.app/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n  <url>\n    <loc>https://itsomjmohite.netlify.app/llms.txt</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n  </url>\n`;
+            workingProjects.forEach(p => {
+                out += `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
+            });
+            out += `</urlset>\n`;
+            return out;
+        }
+
+        // 8. Master ZIP Generation (JSZip)
         document.getElementById('masterDownloadZipBtn').addEventListener('click', () => {
             const zip = new JSZip();
 
-            // projects.js
-            const projectsJsContent = `// Om J. Mohite Portfolio - Projects Data\n// Generated: ${new Date().toISOString()}\nconst portfolioProjects = ${JSON.stringify(workingProjects, null, 2)};\n\nif (typeof window !== 'undefined') {\n  window.portfolioProjects = portfolioProjects;\n}\n`;
-            zip.file("projects.js", projectsJsContent);
-
-            // llms.txt
-            const llmsContent = buildLlmsTxt(workingProjects);
-            zip.file("llms.txt", llmsContent);
-
-            // sitemap.xml
-            const sitemapContent = buildSitemapXml(workingProjects);
-            zip.file("sitemap.xml", sitemapContent);
+            const dataJs = buildPortfolioDataJs();
+            zip.file("portfolio-data.js", dataJs);
+            zip.file("projects.js", dataJs); // Keep projects.js in sync
+            zip.file("llms.txt", buildLlmsTxt());
+            zip.file("sitemap.xml", buildSitemapXml());
 
             zip.generateAsync({ type: "blob" }).then(content => {
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(content);
-                a.download = "Om_Portfolio_Update.zip";
+                a.download = "Om_Portfolio_Full_Update.zip";
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
             });
         });
 
-        function buildLlmsTxt(projects) {
-            const today = new Date().toISOString().split('T')[0];
-            let out = `# Om J. Mohite - Full Stack Web Developer & UI/UX Designer\n\n> Premier Full Stack Web Developer & UI/UX Designer based in Belagavi, Karnataka, India.\n\n## Overview & Identity\n- **Full Name**: Om J. Mohite (also known as Om Mohite)\n- **Role**: Full Stack Web Developer & UI/UX Designer\n- **Location**: Belagavi (Belgaum), Karnataka, India (590001)\n- **Portfolio**: https://itsomjmohite.netlify.app/\n- **GitHub**: https://github.com/mohiteom1503\n- **LinkedIn**: https://www.linkedin.com/in/mohiteom1503\n- **Instagram**: https://www.instagram.com/itsomjmohite\n- **Direct WhatsApp**: https://wa.me/919604964299\n- **Phone**: +91 9604964299\n- **Email**: mohiteom1503@gmail.com\n- **Last Updated**: ${today}\n\n## Verified Production Client Projects\n`;
-
-            projects.forEach((p, idx) => {
-                out += `${idx + 1}. **${p.title}**\n   - **URL**: ${p.url}\n   - **Industry**: ${p.category || 'Local Business'}\n   - **Description**: ${p.description}\n   - **Stack**: ${(p.techStack || []).join(', ')}\n\n`;
-            });
-
-            out += `## Transparent Pricing & Packages\n1. **Single-Page Website (Starter)** - ₹8,999 (3–5 Days Turnaround)\n2. **Professional Practice (Business & Clinic)** - ₹16,999 (5–7 Days Turnaround)\n3. **Commercial Suite (Custom Platform)** - ₹28,999+ (10–14 Days Turnaround)\n`;
-            return out;
+        // 9. GitHub API Automated Deploy
+        function loadStoredGitHub() {
+            const repo = localStorage.getItem('om_gh_repo');
+            const branch = localStorage.getItem('om_gh_branch');
+            const token = localStorage.getItem('om_gh_token');
+            if (repo) document.getElementById('ghRepo').value = repo;
+            if (branch) document.getElementById('ghBranch').value = branch;
+            if (token) document.getElementById('ghToken').value = token;
         }
 
-        function buildSitemapXml(projects) {
-            const today = new Date().toISOString().split('T')[0];
-            let out = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://itsomjmohite.netlify.app/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n  <url>\n    <loc>https://itsomjmohite.netlify.app/llms.txt</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n  </url>\n`;
-            projects.forEach(p => {
-                out += `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
-            });
-            out += `</urlset>\n`;
-            return out;
-        }
+        document.getElementById('ghSaveCredsBtn').addEventListener('click', () => {
+            localStorage.setItem('om_gh_repo', document.getElementById('ghRepo').value.trim());
+            localStorage.setItem('om_gh_branch', document.getElementById('ghBranch').value.trim() || 'main');
+            localStorage.setItem('om_gh_token', document.getElementById('ghToken').value.trim());
+            alert("GitHub credentials saved in your browser!");
+        });
+
+        document.getElementById('ghDeployBtn').addEventListener('click', async () => {
+            const repo = document.getElementById('ghRepo').value.trim();
+            const branch = document.getElementById('ghBranch').value.trim() || 'main';
+            const token = document.getElementById('ghToken').value.trim();
+            const statusDiv = document.getElementById('ghStatus');
+
+            if (!repo || !token) {
+                alert("Please enter your GitHub Repository (e.g. mohiteom1503/portfolio) and Personal Access Token.");
+                return;
+            }
+
+            statusDiv.style.display = 'block';
+            statusDiv.innerHTML = '<span style="color: #60a5fa;"><i class="fa-solid fa-spinner fa-spin"></i> Connecting to GitHub API...</span>';
+
+            const dataJs = buildPortfolioDataJs();
+            const llmsTxt = buildLlmsTxt();
+            const sitemapXml = buildSitemapXml();
+
+            const filesToCommit = [
+                { path: 'portfolio-data.js', content: dataJs },
+                { path: 'projects.js', content: dataJs },
+                { path: 'llms.txt', content: llmsTxt },
+                { path: 'sitemap.xml', content: sitemapXml }
+            ];
+
+            try {
+                for (const file of filesToCommit) {
+                    statusDiv.innerHTML = `<span style="color: #60a5fa;"><i class="fa-solid fa-spinner fa-spin"></i> Committing ${file.path} to GitHub...</span>`;
+                    
+                    let sha = null;
+                    const checkRes = await fetch(`https://api.github.com/repos/${repo}/contents/${file.path}?ref=${branch}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    if (checkRes.ok) {
+                        const fileInfo = await checkRes.json();
+                        sha = fileInfo.sha;
+                    }
+
+                    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${file.path}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `chore: update ${file.path} via Portfolio Control Studio`,
+                            content: btoa(unescape(encodeURIComponent(file.content))),
+                            branch: branch,
+                            ...(sha ? { sha } : {})
+                        })
+                    });
+
+                    if (!putRes.ok) {
+                        const err = await putRes.json();
+                        throw new Error(`Failed to commit ${file.path}: ${err.message || putRes.statusText}`);
+                    }
+                }
+
+                statusDiv.innerHTML = '<span style="color: #34d399; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Successfully deployed to GitHub! Netlify is publishing your live website now (~20s).</span>';
+            } catch (err) {
+                statusDiv.innerHTML = `<span style="color: #ef4444;"><i class="fa-solid fa-circle-xmark"></i> ${err.message}</span>`;
+            }
+        });
     </script>
 </body>
 </html>
