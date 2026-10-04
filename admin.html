@@ -355,7 +355,7 @@
             <button class="nav-tab-btn" id="btn-pricing" onclick="switchTab('tab-pricing', this)"><i class="fa-solid fa-tags"></i> 3. Pricing Packages</button>
             <button class="nav-tab-btn" id="btn-reviews" onclick="switchTab('tab-reviews', this)"><i class="fa-solid fa-star"></i> 4. Reviews &amp; Google Profile</button>
             <button class="nav-tab-btn" id="btn-socials" onclick="switchTab('tab-socials', this)"><i class="fa-solid fa-share-nodes"></i> 5. Socials &amp; Contacts</button>
-            <button class="nav-tab-btn" id="btn-publish" onclick="switchTab('tab-publish', this" style="border-color: var(--accent-green); color: #34d399;"><i class="fa-solid fa-cloud-arrow-up"></i> 6. Publish &amp; Deploy</button>
+            <button class="nav-tab-btn" id="btn-publish" onclick="switchTab('tab-publish', this)" style="border-color: var(--accent-green); color: #34d399;"><i class="fa-solid fa-cloud-arrow-up"></i> 6. Publish &amp; Deploy</button>
         </nav>
 
         <!-- TAB 1: PROJECTS MANAGER -->
@@ -660,6 +660,22 @@
                 <div style="margin-top: 10px; font-size: 0.88rem; color: #a7f3d0; background: rgba(16,185,129,0.1); padding: 10px 14px; border-radius: 8px;">
                     ✨ <strong>Netlify Auto-Deploy:</strong> Once committed to GitHub, Netlify automatically updates your live site at <code>itsomjmohite.netlify.app</code> in 20 seconds.
                 </div>
+
+            <!-- Direct Mobile Copy Option -->
+            <div style="background: #0d0d10; border: 1px solid var(--border-card); border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem;">
+                <h4 style="color: #34d399; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-copy"></i> Mobile-Friendly: Copy Code Directly (No ZIP Needed)
+                </h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.2rem;">
+                    If you are on a phone and cannot unzip files, you can copy the updated code for <code>portfolio-data.js</code> and <code>llms.txt</code> right here, then paste them directly into GitHub using the pencil ✏️ edit icon.
+                </p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <button type="button" class="btn btn-outline" onclick="copyGeneratedFile('portfolio-data.js', this)"><i class="fa-solid fa-copy"></i> Copy portfolio-data.js</button>
+                    <button type="button" class="btn btn-outline" onclick="copyGeneratedFile('llms.txt', this)"><i class="fa-solid fa-copy"></i> Copy llms.txt</button>
+                    <button type="button" class="btn btn-outline" onclick="copyGeneratedFile('sitemap.xml', this)"><i class="fa-solid fa-copy"></i> Copy sitemap.xml</button>
+                </div>
+                <div id="copyNotice" style="font-size: 0.85rem; color: #34d399; display: none;"></div>
+            </div>
             </div>
         </div>
 
@@ -1002,6 +1018,29 @@
                 statusDiv.innerHTML = `<span style="color: #ef4444;"><i class="fa-solid fa-circle-xmark"></i> ${err.message}</span>`;
             }
         });
+
+        function copyGeneratedFile(filename, btn) {
+            let content = '';
+            if (filename === 'portfolio-data.js') content = buildPortfolioDataJs();
+            else if (filename === 'llms.txt') content = buildLlmsTxt();
+            else if (filename === 'sitemap.xml') content = buildSitemapXml();
+
+            navigator.clipboard.writeText(content).then(() => {
+                const prev = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                btn.style.color = '#34d399';
+                const notice = document.getElementById('copyNotice');
+                notice.style.display = 'block';
+                notice.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + filename + ' copied to clipboard! Now open GitHub on your phone, click ' + filename + ', click ✏️, paste, and commit!';
+                setTimeout(() => {
+                    btn.innerHTML = prev;
+                    btn.style.color = '';
+                }, 3000);
+            }).catch(err => {
+                alert('Please select and copy manually: ' + err);
+            });
+        }
+
     </script>
 </body>
 </html>
