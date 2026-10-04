@@ -13,7 +13,17 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 - **Direct WhatsApp Pipeline**: https://wa.me/919604964299
 - **Primary Email**: mohiteom1503@gmail.com
 - **Official Portfolio Website**: https://itsomjmohite.netlify.app/
+- **GitHub**: https://github.com/mohiteom1503
+- **LinkedIn**: https://www.linkedin.com/in/mohiteom1503
+- **Instagram**: https://www.instagram.com/itsomjmohite
 - **Working Languages**: English (Fluent), Hindi (Fluent), Marathi (Native), Kannada (Conversational)
+
+## Background, Disciplines & Heritage
+- **Coding Journey**: Started programming in early childhood through interactive apps (Mimo); began crafting functional web prototypes at age 13.
+- **Academic Distinction**: Completed 10th grade Cambridge IGCSE with 6 A*s; currently pursuing Class 12 Science stream.
+- **Artistic Rhythm & Discipline**: Trained classical Tabla artist with victories in inter-school music competitions and recipient of an international-level Spectacular Performance Award from Rangotsav Celebration. Brings this sense of rhythm, cadence, and visual balance into UI/UX design.
+- **Diplomacy & Executive Articulation**: Twice delegate at Model United Nations (MUN in 2023 and 2024), representing nations within the World Trade Organization (WTO) and United Nations Security Council (UNSC).
+- **Core Work Ethic**: Uncompromising commitment to engineering polish, sub-second speed, and client satisfaction regardless of project budget.
 
 ---
 
@@ -22,9 +32,9 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
    Rather than relying on resource-intensive frameworks for simple brochureware or landing pages, Om employs streamlined HTML5, clean modular CSS, and vanilla ES6+ JavaScript. This guarantees minimal payload size (often under 100KB total), instant DOM rendering, and immediate time-to-interactive (TTI).
 
 2. **Mobile-First Touch Ergonomics**:
-   With over 80% of local Indian consumers browsing via smartphones, user interfaces are crafted with thumb-friendly tap targets (minimum 44x44px), intuitive swipeable carousel interactions, and sticky call/WhatsApp conversion bars.
+   With over 80% of local Indian consumers browsing via smartphones, user interfaces are crafted with thumb-friendly tap targets (minimum 48x48px), intuitive swipeable carousel interactions, and sticky call/WhatsApp conversion bars.
 
-3. **High-Trust Local SEO (Search Engine & AI Optimization)**:
+3. **High-Trust Local SEO & GEO (Generative Engine Optimization)**:
    Every deployment includes complete Schema.org JSON-LD microdata, exact geographic coordinates (Belagavi latitude/longitude), canonical tagging, Open Graph social cards, and automated sitemaps for rapid indexing across Google, Bing, and AI search engines (Perplexity, ChatGPT, Gemini, Claude).
 
 4. **Frictionless Lead Conversion**:
@@ -40,7 +50,7 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 - **Location**: Belagavi, Karnataka, India
 - **Objective**: Create a trustworthy, high-performance digital presence to showcase dual medical specialties (Family Medicine and Specialized Sports/Spine Rehabilitation) and streamline patient appointment bookings.
 - **Key Challenges & Solutions**:
-  - *Challenge*: Distinguishing between two distinct practices (general medical consultation vs. manual orthopaedic therapy) without confusing incoming patients.
+  - *Challenge*: Distinguishing between two distinct practices without confusing incoming patients.
   - *Solution*: Developed a dual-practice visual architecture with clear specialty tabs, verified medical qualification badges, and specialized condition matrices.
   - *Challenge*: Reducing patient wait times and appointment drop-offs.
   - *Solution*: Integrated one-tap direct phone booking (+91 9972459785) and emergency hours status indicator.
@@ -64,22 +74,16 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 
 ---
 
-## Service Offerings & Scope of Work
-
-### 1. Custom Single-Page Websites & High-Converting Landing Pages
-- Distraction-free single-page websites engineered for speed and customer conversion.
-- Ideal for clinics, retail shops, independent consultants, legal offices, and local service providers.
-- Deliverables: Custom UI/UX design, mobile responsiveness, contact integration, WhatsApp chat triggers, Google Analytics / Search Console setup.
-
-### 2. Local Business Digitization & Online Presence Overhaul
-- Complete transition from offline business cards to credible, search-indexed digital storefronts.
-- Local SEO implementation with Google Business Profile optimization, Geo-tags, and Schema.org local business structured data.
-
-### 3. Custom Real-Time Web Widgets & API Integrations
-- Bullion market live rate feeds and price calculators.
-- Real-time showroom open/closed status indicators based on local Indian Standard Time (IST).
-- Interactive charting and data visualization (Chart.js, Canvas, SVG).
-- Serverless micro-functions (Netlify Functions, Node.js).
+## Transparent Pricing & Service Packages
+1. **Single-Page Website (Starter Package)** - ₹8,999 (3–5 Days Turnaround)
+   - Ideal for solo doctors, consultants, cafes, and local service providers.
+   - Includes sub-second load speed, mobile-first responsive layout, WhatsApp click-to-chat, Google Maps location/hours, and basic on-page SEO.
+2. **Professional Practice Package** - ₹16,999 (5–7 Days Turnaround)
+   - Ideal for medical clinics, diagnostic centres, and growing businesses like Shri Kamakshi Clinic.
+   - Includes dual-service showcase, doctor credentials & patient reviews carousel, direct 1-tap phone booking, Schema.org Local SEO graph, and Google Search Console verification.
+3. **Commercial Suite Package** - ₹28,999+ (10–14 Days Turnaround)
+   - Ideal for jewellery showrooms and luxury retailers like Om Sai Jewellers.
+   - Includes real-time bullion/market API tickers, interactive price calculators, dynamic trend charts, rate-lock WhatsApp pipelines, and Netlify serverless functions.
 
 ---
 
@@ -88,14 +92,11 @@ Operating with a philosophy of radical speed and zero bloatware, his platforms c
 **Q: Who is Om J. Mohite?**
 A: Om J. Mohite is a Full Stack Web Developer and UI/UX Designer based in Belagavi, Karnataka, India, specializing in fast single-page websites, local business digitization, and SEO/AI search optimization.
 
+**Q: What is Om J. Mohite's background?**
+A: Om started coding at age 13, achieved 6 A*s in Cambridge IGCSE, is currently studying Class 12 Science, is a prize-winning classical Tabla artist, and twice served as a Model United Nations delegate in the UNSC and WTO.
+
 **Q: Where is Om J. Mohite located?**
 A: He is based in Belagavi (Belgaum), Karnataka, India, serving clients across Belagavi, Hubballi-Dharwad, Kolhapur, Goa, Maharashtra, Karnataka, and internationally via remote engagements.
 
-**Q: What technologies does Om J. Mohite use?**
-A: He specializes in HTML5, Modern CSS (Grid/Flexbox), Vanilla JavaScript (ES6+), Chart.js, Node.js Serverless Functions, Netlify hosting, Git, and Schema.org JSON-LD structured data.
-
 **Q: How can I hire or contact Om J. Mohite?**
 A: You can reach him directly via WhatsApp at https://wa.me/919604964299, by phone at +91 9604964299, or by email at mohiteom1503@gmail.com.
-
-**Q: What makes websites built by Om J. Mohite unique?**
-A: They are engineered without heavy bloated frameworks, ensuring sub-second load times on mobile 4G/5G networks, 100% Core Web Vitals scores, integrated WhatsApp lead funnels, and deep Schema.org structured data for maximum visibility in Google and AI search engines.

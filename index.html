@@ -104,6 +104,12 @@
             "Netlify Serverless Architecture",
             "Schema.org JSON-LD Structured Data"
           ],
+          "award": [
+            "Cambridge IGCSE 6 A*s Academic Distinction",
+            "Spectacular Performance Award - Rangotsav Celebration",
+            "Model United Nations Delegate - UNSC & WTO"
+          ],
+          "knowsLanguage": ["English", "Hindi", "Marathi", "Kannada"],
           "hasOccupation": {
             "@type": "Occupation",
             "name": "Full Stack Web Developer & UI/UX Designer",
@@ -111,6 +117,9 @@
             "skills": "HTML5, Modern CSS, Vanilla JavaScript, Responsive Design, Local SEO, API Integration, Performance Engineering"
           },
           "sameAs": [
+            "https://github.com/mohiteom1503",
+            "https://www.linkedin.com/in/mohiteom1503",
+            "https://www.instagram.com/itsomjmohite",
             "https://wa.me/919604964299",
             "https://itsomjmohite.netlify.app/",
             "https://itsomjmohite.netlify.app/llms.txt"
@@ -1168,6 +1177,417 @@
             text-decoration: underline;
         }
 
+    
+        /* Social Pill Buttons in Hero & Footer */
+        .hero-social-strip {
+            display: flex;
+            gap: 12px;
+            margin-top: 1.2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            color: #d1d5db;
+            font-size: 0.88rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .social-pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: var(--accent-orange);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5.5rem 6% 3.5rem;
+            border-top: 1px solid var(--border-card);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; }
+        }
+        .about-text-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 2.2rem;
+            line-height: 1.8;
+            font-size: 1.02rem;
+            color: #d1d5db;
+        }
+        .about-text-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+        .about-text-card p {
+            margin-bottom: 1.1rem;
+        }
+        .about-highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+        @media (max-width: 500px) {
+            .about-highlights-grid { grid-template-columns: 1fr; }
+        }
+        .about-stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+        .about-stat-box:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+        .about-stat-box .stat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 0.8rem;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .about-stat-box h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+        .about-stat-box p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5.5rem 6% 3.5rem;
+            border-top: 1px solid var(--border-card);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 2.2rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .pricing-card.featured {
+            border-color: var(--accent-orange);
+            background: linear-gradient(180deg, rgba(255, 107, 53, 0.04) 0%, var(--bg-card) 100%);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.12);
+        }
+        .popular-ribbon {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-orange);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pricing-header h3 {
+            font-size: 1.35rem;
+            margin: 0.8rem 0 0.5rem;
+            color: #fff;
+        }
+        .pricing-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            min-height: 48px;
+            line-height: 1.5;
+        }
+        .price-wrap {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+        .price-wrap .currency {
+            font-size: 1.4rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+        .price-wrap .amount {
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #fff;
+        }
+        .price-wrap .billing {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-left: 6px;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 1.5rem;
+        }
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: #d1d5db;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        .pricing-features li i.fa-check {
+            color: var(--accent-green);
+            margin-top: 3px;
+            font-size: 0.85rem;
+        }
+        .pricing-features li i.fa-clock {
+            color: #60a5fa;
+            margin-top: 3px;
+            font-size: 0.85rem;
+        }
+        .pricing-action {
+            margin-top: auto;
+        }
+
+        /* Sticky Mobile Action Bar */
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 18, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 16px;
+            z-index: 999;
+            box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
+        }
+        @media (max-width: 768px) {
+            .mobile-sticky-bar {
+                display: flex;
+                gap: 12px;
+            }
+            body { padding-bottom: 70px; }
+        }
+        .mobile-action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .mobile-action-btn.phone {
+            background: #222;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .mobile-action-btn.whatsapp {
+            background: #25D366;
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* Footer Social Buttons */
+        .footer-social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 1.5rem 0 1rem;
+            flex-wrap: wrap;
+        }
+        .footer-social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            color: #d1d5db;
+            font-size: 0.88rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .footer-social-btn:hover {
+            color: #fff;
+            border-color: var(--accent-orange);
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+    
+        /* Aligned Sections & Margins */
+        .about-section, .pricing-section {
+            padding: 5.5rem 6% 3.5rem;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-card);
+        }
+
+        /* Bio 3-Point Structure Styling */
+        .about-header-badge { margin-bottom: 0.8rem; }
+        .about-lead {
+            font-size: 1.05rem;
+            color: var(--accent-orange);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .bio-points-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .bio-point-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+        .bio-point-item:hover {
+            border-color: rgba(255, 107, 53, 0.3);
+            background: rgba(255, 107, 53, 0.03);
+        }
+        .bio-point-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 107, 53, 0.12);
+            color: var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .bio-point-content h4 {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        .bio-point-content p {
+            font-size: 0.92rem;
+            color: #d1d5db;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+        .bio-quote-strip {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 3px solid var(--accent-green);
+            padding: 1rem 1.2rem;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            font-size: 0.92rem;
+            color: #e5e7eb;
+            margin-top: 1rem;
+        }
+        .bio-quote-strip i {
+            color: var(--accent-green);
+            margin-top: 3px;
+        }
+        .bio-quote-strip p { margin-bottom: 0; }
+
+        /* Responsive Mobile/Tablet Peek-Carousel for Services & Pricing */
+        @media (max-width: 960px) {
+            .swipe-hint-inline {
+                display: flex !important;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.82rem;
+                color: var(--accent-orange);
+                margin-bottom: 1rem;
+                font-weight: 500;
+            }
+            .services-grid, .pricing-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 1.2rem !important;
+                margin-left: -6% !important;
+                margin-right: -6% !important;
+                padding-left: 6% !important;
+                padding-right: 6% !important;
+                padding-bottom: 1.2rem !important;
+                padding-top: 0.4rem !important;
+                scrollbar-width: none !important;
+            }
+            .services-grid::-webkit-scrollbar,
+            .pricing-grid::-webkit-scrollbar {
+                display: none !important;
+            }
+            /* 82% card width gives a visible 18% right-edge peek of the next card! */
+            .service-box, .pricing-card {
+                flex: 0 0 82% !important;
+                max-width: 82% !important;
+                scroll-snap-align: start !important;
+                scroll-snap-stop: always !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .service-box, .pricing-card {
+                flex: 0 0 84% !important;
+                max-width: 84% !important;
+            }
+        }
+        @media (min-width: 961px) {
+            .swipe-hint-inline { display: none !important; }
+        }
+
     </style>
     <link rel="alternate" type="text/markdown" title="LLM Context" href="https://itsomjmohite.netlify.app/llms.txt">
 </head>
@@ -1183,10 +1603,11 @@
         </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
-            <li><a href="#work">Featured Work</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Packages</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Let's Talk</a></li>
+            <li><a href="#contact" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
         </ul>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
             <i class="fa-solid fa-bars"></i>
@@ -1206,9 +1627,25 @@
 
             <div class="hero-buttons">
                 <a href="#work" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View My Work</a>
-                <a href="https://wa.me/919604964299" target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue">
+                <a href="https://wa.me/919604964299?text=Hi%20Om,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue">
                     <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
                 </a>
+            </div>
+
+            <!-- Social Profile Verification Links -->
+            <div class="hero-social-strip">
+                <a href="https://github.com/mohiteom1503" target="_blank" rel="noopener noreferrer" class="social-pill" title="GitHub - Om J. Mohite">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/mohiteom1503" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn - Om J. Mohite">
+                    <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i> LinkedIn
+                </a>
+                <a href="https://www.instagram.com/itsomjmohite" target="_blank" rel="noopener noreferrer" class="social-pill" title="Instagram - Om J. Mohite">
+                    <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> Instagram
+                </a>
+                <span class="social-pill" style="cursor: default; opacity: 0.85;">
+                    <i class="fa-solid fa-award" style="color: #fbbf24;"></i> Cambridge IGCSE 6 A*s
+                </span>
             </div>
         </div>
     </header>
@@ -1374,6 +1811,9 @@
                 <p class="section-subtitle">Tailored digital solutions built from the ground up for speed, credibility, and customer acquisition.</p>
             </div>
         </div>
+        <div class="swipe-hint-inline">
+            <i class="fa-solid fa-hand-pointer"></i> Swipe sideways to browse all 3 services &rarr;
+        </div>
 
         <div class="services-grid">
             <div class="service-box">
@@ -1399,6 +1839,184 @@
             </div>
         </div>
     </section>
+
+
+    <!-- About Om J. Mohite Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Behind the <span>Code</span></h2>
+                <p class="section-subtitle">Disciplined engineering, musical rhythm, and an obsession with perfection.</p>
+            </div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text-card">
+                <div class="about-header-badge">
+                    <span class="badge badge-orange"><i class="fa-solid fa-user-check"></i> Meet Om J. Mohite</span>
+                </div>
+                <h3>Building Fast, High-Impact Web Solutions with Heart</h3>
+                <p class="about-lead">Full Stack Developer &amp; UI/UX Designer based in Belagavi, Karnataka.</p>
+                
+                <div class="bio-points-list">
+                    <div class="bio-point-item">
+                        <div class="bio-point-icon"><i class="fa-solid fa-code"></i></div>
+                        <div class="bio-point-content">
+                            <h4>Early Coding Roots</h4>
+                            <p>Fell in love with programming in childhood through interactive tools like Mimo. Started building functional web prototypes since age 13, and now engineer high-converting digital storefronts for real-world clinics, retail showrooms, and local businesses.</p>
+                        </div>
+                    </div>
+
+                    <div class="bio-point-item">
+                        <div class="bio-point-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="bio-point-content">
+                            <h4>Academic &amp; Analytical Rigor</h4>
+                            <p>Achieved <strong>6 A*s in Cambridge IGCSE</strong> (10th grade) and currently pursuing Class 12 Science in Belagavi. I bring disciplined mathematical logic and structured problem-solving to every line of code I write.</p>
+                        </div>
+                    </div>
+
+                    <div class="bio-point-item">
+                        <div class="bio-point-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="bio-point-content">
+                            <h4>Creative Rhythm &amp; Executive Diplomacy</h4>
+                            <p>Trained classical Tabla artist (inter-school champion &amp; international Rangotsav Spectacular Performance Award winner) and two-time Model UN delegate representing nations in the <strong>UNSC &amp; WTO</strong>. This gives me a musician's sense of design balance and executive-level client communication.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio-quote-strip">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"Whenever I build a website, it is my passion. I pour my complete self into achieving perfection, making sure the client gets far more than expected."</p>
+                </div>
+            </div>
+
+            <div class="about-highlights-grid">
+                <div class="about-stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h4>Coding Since 13</h4>
+                    <p>Years of hands-on web coding &amp; building functional platforms</p>
+                </div>
+                <div class="about-stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>6 A*s</h4>
+                    <p>Cambridge IGCSE Academic Excellence</p>
+                </div>
+                <div class="about-stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-drum"></i></div>
+                    <h4>Classical Tabla</h4>
+                    <p>Award-winning musical rhythm &amp; artistic balance</p>
+                </div>
+                <div class="about-stat-box">
+                    <div class="stat-icon"><i class="fa-solid fa-landmark-dome"></i></div>
+                    <h4>MUN Delegate</h4>
+                    <p>UNSC &amp; WTO Diplomatic Representation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparent Pricing & Packages Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Transparent <span>Packages</span></h2>
+                <p class="section-subtitle">Clear investment tiers tailored for local businesses, private clinics, and retail showrooms in Belagavi and beyond.</p>
+            </div>
+        </div>
+        <div class="swipe-hint-inline">
+            <i class="fa-solid fa-hand-pointer"></i> Swipe sideways to compare packages &rarr;
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Tier 1 -->
+            <div class="pricing-card">
+                <div>
+                    <div class="pricing-header">
+                        <span class="badge badge-orange">Starter</span>
+                        <h3>Single-Page Website</h3>
+                        <p class="pricing-desc">Ideal for solo doctors, consultants, cafes, and local service providers seeking a fast digital footprint.</p>
+                        <div class="price-wrap">
+                            <span class="currency">₹</span><span class="amount">8,999</span>
+                            <span class="billing">one-time</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check"></i> Sub-second load speed (&lt; 0.8s FCP)</li>
+                        <li><i class="fa-solid fa-check"></i> 100% Mobile-first responsive design</li>
+                        <li><i class="fa-solid fa-check"></i> Direct WhatsApp click-to-chat integration</li>
+                        <li><i class="fa-solid fa-check"></i> Google Maps location &amp; business hours</li>
+                        <li><i class="fa-solid fa-check"></i> On-page local SEO &amp; metadata</li>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Turnaround: 3–5 Business Days</strong></li>
+                    </ul>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://wa.me/919604964299?text=Hi%20Om,%20I%20am%20interested%20in%20the%20Single-Page%20Website%20Package%20(₹8,999)." target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+                        Choose Starter <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="pricing-card featured">
+                <div class="popular-ribbon">Most Popular</div>
+                <div>
+                    <div class="pricing-header">
+                        <span class="badge badge-green">Business &amp; Clinic</span>
+                        <h3>Professional Practice</h3>
+                        <p class="pricing-desc">Built for medical clinics, diagnostic centres, and growing businesses like Shri Kamakshi Clinic.</p>
+                        <div class="price-wrap">
+                            <span class="currency">₹</span><span class="amount">16,999</span>
+                            <span class="billing">one-time</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check"></i> Everything in Starter Package</li>
+                        <li><i class="fa-solid fa-check"></i> Dual practice / multi-specialty showcase</li>
+                        <li><i class="fa-solid fa-check"></i> Direct 1-tap phone booking flow</li>
+                        <li><i class="fa-solid fa-check"></i> Doctor credentials &amp; patient reviews carousel</li>
+                        <li><i class="fa-solid fa-check"></i> Deep Schema.org JSON-LD Local SEO graph</li>
+                        <li><i class="fa-solid fa-check"></i> Google Search Console verification</li>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Turnaround: 5–7 Business Days</strong></li>
+                    </ul>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://wa.me/919604964299?text=Hi%20Om,%20I%20am%20interested%20in%20the%20Professional%20Practice%20Package%20(₹16,999)." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+                        Choose Professional <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="pricing-card">
+                <div>
+                    <div class="pricing-header">
+                        <span class="badge badge-blue">Custom Platform</span>
+                        <h3>Commercial Suite</h3>
+                        <p class="pricing-desc">Engineered for jewellery showrooms and luxury retail requiring live rates, calculators, and API pipelines.</p>
+                        <div class="price-wrap">
+                            <span class="currency">₹</span><span class="amount">28,999</span>
+                            <span class="billing">starting at</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check"></i> Everything in Professional Package</li>
+                        <li><i class="fa-solid fa-check"></i> Real-time bullion/market API rate ticker</li>
+                        <li><i class="fa-solid fa-check"></i> Interactive weight-to-cost price estimator</li>
+                        <li><i class="fa-solid fa-check"></i> Dynamic price trend charts (Chart.js)</li>
+                        <li><i class="fa-solid fa-check"></i> Rate-lock WhatsApp order funnel</li>
+                        <li><i class="fa-solid fa-check"></i> Netlify serverless functions &amp; edge caching</li>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Turnaround: 10–14 Business Days</strong></li>
+                    </ul>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://wa.me/919604964299?text=Hi%20Om,%20I%20am%20interested%20in%20the%20Commercial%20Suite%20Package%20(₹28,999+)." target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+                        Discuss Custom Suite <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Local Trust & Location Banner -->
     <div class="trust-banner">
@@ -1502,6 +2120,19 @@
                 </div>
             </div>
             
+            <!-- Verified Developer Socials -->
+            <div class="footer-social-links">
+                <a href="https://github.com/mohiteom1503" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub Profile">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/mohiteom1503" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i> LinkedIn
+                </a>
+                <a href="https://www.instagram.com/itsomjmohite" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="Instagram Profile">
+                    <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> Instagram
+                </a>
+            </div>
+
             <div class="copyright">
                 &copy; 2026 Om J. Mohite. All rights reserved.
             </div>
@@ -1642,5 +2273,16 @@
             });
         }
     </script>
+
+    <!-- Floating Mobile Quick-Action Contact Bar (Smartphone Optimized) -->
+    <div class="mobile-sticky-bar" aria-label="Mobile quick actions">
+        <a href="tel:+919604964299" class="mobile-action-btn phone">
+            <i class="fa-solid fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/919604964299?text=Hi%20Om,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="mobile-action-btn whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
 </body>
 </html>
