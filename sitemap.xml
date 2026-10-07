@@ -1,73 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Main Portfolio Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://itsomjmohite.netlify.app/</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-07</lastmod>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://itsomjmohite.netlify.app/og-image.png</image:loc>
-      <image:title>Om J. Mohite - Full Stack Web Developer &amp; Designer</image:title>
-      <image:caption>Engineering digital growth for local businesses in Belagavi, Karnataka</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://itsomjmohite.netlify.app/favicon.png</image:loc>
-      <image:title>Om J. Mohite Brand Emblem</image:title>
-    </image:image>
   </url>
-
-  <!-- Featured Projects Section -->
-  <url>
-    <loc>https://itsomjmohite.netlify.app/#work</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Services Section -->
-  <url>
-    <loc>https://itsomjmohite.netlify.app/#services</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- FAQ Section for Search & AI Engines -->
-  <url>
-    <loc>https://itsomjmohite.netlify.app/#faq</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Contact & Hire Section -->
-  <url>
-    <loc>https://itsomjmohite.netlify.app/#contact</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Standard LLM Discovery Context -->
   <url>
     <loc>https://itsomjmohite.netlify.app/llms.txt</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
   </url>
-
-  <!-- Full LLM Knowledge Base -->
   <url>
-    <loc>https://itsomjmohite.netlify.app/llms-full.txt</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://shrikamakshiclinic.netlify.app</loc>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://omsaijewellersbgm.netlify.app</loc>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
