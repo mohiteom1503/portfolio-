@@ -2470,27 +2470,11 @@
                 <span style="color: #FF6B35; font-weight: 700;">Om J. Mohite</span>
                 <i class="fa-solid fa-arrow-up-right-from-square" style="color: #FF6B35; font-size: 0.8rem;"></i>
             </a>
-            <a href="admin.html" class="dev-badge" title="Open Admin Control Studio" style="opacity: 0.75;">
-                <i class="fa-solid fa-sliders" style="color: #10B981; font-size: 0.8rem;"></i>
-                <span>Admin Studio</span>
-            </a>
         </div>
     </footer>
 
     <!-- Load Centralized Projects Data -->
-    <!-- Floating Admin Live Quick-Bar (Visible when Admin is authenticated or ?admin=1) -->
-    <div id="floatingAdminBar" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: rgba(18, 18, 23, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(16, 185, 129, 0.45); border-radius: 999px; padding: 8px 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.6); align-items: center; gap: 10px; font-size: 0.84rem; color: #f3f4f6;">
-        <span style="display: inline-flex; align-items: center; gap: 6px; color: #34d399; font-weight: 600;">
-            <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
-            Live Sync Ready
-        </span>
-        <button type="button" id="toggleInlineEditBtn" style="background: rgba(255, 107, 53, 0.15); border: 1px solid rgba(255, 107, 53, 0.4); color: #FF6B35; padding: 5px 12px; border-radius: 999px; cursor: pointer; font-family: inherit; font-weight: 600; font-size: 0.8rem;">
-            <i class="fa-solid fa-pen-to-square"></i> Edit Text on Page
-        </button>
-        <a href="admin.html" style="background: #FF6B35; color: #000; padding: 5px 12px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">
-            <i class="fa-solid fa-sliders"></i> Open Studio
-        </a>
-    </div>
+    
 
     <!-- Load Centralized Portfolio Data -->
     <script src="portfolio-data.js"></script>
@@ -2986,61 +2970,6 @@
             });
         }
 
-        // 6. Floating Admin Bar & In-Page Visual Text Editor (when authenticated as Om)
-        (function initAdminQuickBar() {
-            let isAuthed = false;
-            try {
-                isAuthed = localStorage.getItem('om_control_auth') === 'true' || window.location.search.includes('admin=1') || window.location.hash === '#admin';
-            } catch (e) {}
-            const bar = document.getElementById('floatingAdminBar');
-            const editBtn = document.getElementById('toggleInlineEditBtn');
-            if (!bar || !isAuthed) return;
-            bar.style.display = 'inline-flex';
-
-            let inlineActive = false;
-            editBtn.addEventListener('click', () => {
-                inlineActive = !inlineActive;
-                if (inlineActive) {
-                    editBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Save Inline Edits';
-                    editBtn.style.background = '#10B981';
-                    editBtn.style.color = '#000';
-                    document.querySelectorAll('.hero h1, .hero .hero-content > p, .about-lead, .bio-quote-strip p, #contact .footer-content h2, #contact .footer-sub').forEach(el => {
-                        el.contentEditable = 'true';
-                        el.style.outline = '1px dashed #FF6B35';
-                        el.style.borderRadius = '6px';
-                    });
-                } else {
-                    editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit Text on Page';
-                    editBtn.style.background = 'rgba(255, 107, 53, 0.15)';
-                    editBtn.style.color = '#FF6B35';
-                    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
-                        el.contentEditable = 'false';
-                        el.style.outline = '';
-                    });
-                    // Sync inline edits back to portfolioData
-                    const d = window.portfolioData || {};
-                    d.hero = d.hero || {};
-                    const subEl = document.querySelector('.hero .hero-content > p');
-                    if (subEl) d.hero.subtitle = subEl.textContent.trim();
-                    d.bio = d.bio || {};
-                    const leadEl = document.querySelector('.about-lead');
-                    if (leadEl) d.bio.lead = leadEl.textContent.trim();
-                    const quoteEl = document.querySelector('.bio-quote-strip p');
-                    if (quoteEl) d.bio.quote = quoteEl.textContent.trim().replace(/^["']|["']$/g, '');
-                    d.socials = d.socials || {};
-                    const fHead = document.querySelector('#contact .footer-content h2');
-                    if (fHead) d.socials.footerHeading = fHead.textContent.trim();
-                    const fSub = document.querySelector('#contact .footer-sub');
-                    if (fSub) d.socials.footerSub = fSub.textContent.trim();
-
-                    try {
-                        localStorage.setItem('om_portfolio_live_v12', JSON.stringify(d));
-                        const bc = new BroadcastChannel('om_portfolio_sync');
-                        bc.postMessage({ type: 'PORTFOLIO_UPDATE', payload: d });
-                    } catch (e) {}
-                }
-            });
-        })();
-    </script>
+            </script>
 </body>
 </html>

@@ -7,7 +7,7 @@ This portfolio package is engineered so **100% of your website** (Hero, Metrics,
 ## ⚡ 3 Zero-Hassle Ways to Update Your Live Website (`itsomjmohite.netlify.app`)
 
 ### Method 1: Direct Netlify 1-Click Auto-Publish (Recommended — No GitHub Needed!)
-1. Open `admin.html` (passkey: **`om2026`**) and go to **Tab 9 (`⚡ Auto-Publish & Export`)**.
+1. Open `admin.html` (passkey: **`your private passkey`**) and go to **Tab 9 (`⚡ Auto-Publish & Export`)**.
 2. In the **Direct Netlify 1-Click Auto-Deploy** box, enter your Netlify Site (`itsomjmohite.netlify.app`) and paste a **Netlify Personal Access Token** (from **Netlify User Settings > Applications > Personal access tokens > New access token**).
 3. Click **Save Netlify Token**.
 4. From now on, **whenever you click Save on ANY form in `admin.html`**, your changes are automatically pushed live to `itsomjmohite.netlify.app` in **~2 seconds**!

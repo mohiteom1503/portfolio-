@@ -373,19 +373,50 @@
             </div>
         </div>
     </div>
+    <!-- Change Passkey Modal -->
+    <div class="modal-backdrop" id="changePassModal" style="display: none;">
+        <div class="modal-card" style="max-width: 420px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.8rem;">
+                <h4 style="color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-key" style="color: var(--accent-orange);"></i> Change Admin Passkey
+                </h4>
+                <button type="button" class="btn btn-outline btn-sm" id="closeChangePassModal" style="padding: 2px 8px; font-size: 0.8rem;">&times;</button>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.9rem;">
+                <label style="font-size: 0.85rem; color: #d1d5db;">Current Passkey</label>
+                <input type="password" id="curPassInput" class="form-control" placeholder="Enter current passkey">
+            </div>
+            <div class="form-group" style="margin-bottom: 0.9rem;">
+                <label style="font-size: 0.85rem; color: #d1d5db;">New Passkey</label>
+                <input type="password" id="newPassInput" class="form-control" placeholder="Minimum 4 characters">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+                <label style="font-size: 0.85rem; color: #d1d5db;">Confirm New Passkey</label>
+                <input type="password" id="confirmNewPassInput" class="form-control" placeholder="Re-enter new passkey">
+            </div>
+            <div id="changePassError" style="color: #ef4444; font-size: 0.82rem; margin-bottom: 0.8rem; display: none;"></div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button type="button" class="btn btn-outline btn-sm" id="cancelChangePassBtn">Cancel</button>
+                <button type="button" class="btn btn-green btn-sm" id="saveNewPassBtn">
+                    <i class="fa-solid fa-check"></i> Save New Passkey
+                </button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- 1. LOCK SCREEN -->
     <div id="lockScreen" class="lock-container">
         <div class="lock-icon"><i class="fa-solid fa-shield-halved"></i></div>
         <h2 style="margin-bottom: 0.3rem;">Om J. Mohite</h2>
         <p style="color: var(--accent-orange); font-weight: 600; font-size: 0.92rem; margin-bottom: 0.7rem;">
-            Universal Live Portfolio Studio (v12)
+            Portfolio Control Studio
         </p>
         <p style="color: var(--text-muted); font-size: 0.86rem; margin-bottom: 1.4rem;">
-            Enter your passkey (<strong>om2026</strong>) to edit every section of your portfolio with real-time live preview &amp; 1-click Netlify publishing.
+            Enter your private owner passkey to access your live studio.
         </p>
         <div class="form-group">
-            <input type="password" id="passInput" class="form-control" value="om2026" placeholder="Enter passkey (default: om2026)" style="text-align: center; font-size: 1rem; letter-spacing: 2px;">
+            <input type="password" id="passInput" class="form-control" value="" placeholder="Enter your passkey" autocomplete="current-password" style="text-align: center; font-size: 1rem; letter-spacing: 2px;">
         </div>
         <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 1.2rem; font-size: 0.85rem; color: var(--text-muted);">
             <input type="checkbox" id="rememberMe" checked>
@@ -395,7 +426,22 @@
             <i class="fa-solid fa-lock-open"></i> Unlock Live Studio
         </button>
         <div id="lockError" style="color: #ef4444; font-size: 0.85rem; margin-top: 12px; display: none;">
-            <i class="fa-solid fa-triangle-exclamation"></i> Incorrect passkey. Use <strong>om2026</strong>
+            <i class="fa-solid fa-triangle-exclamation"></i> Incorrect passkey. Please try again.
+        </div>
+        
+        <!-- Emergency Recovery / Forgot Passkey -->
+        <div style="margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
+            <a href="javascript:void(0)" id="forgotPassLink" style="color: var(--text-muted); font-size: 0.82rem; text-decoration: underline;">
+                <i class="fa-solid fa-key"></i> Forgot Passkey?
+            </a>
+            <div id="recoveryBox" style="display: none; margin-top: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,107,53,0.3); border-radius: 10px; padding: 12px; text-align: left; font-size: 0.82rem; color: #d1d5db;">
+                <p style="margin-bottom: 8px;"><strong>Emergency Recovery Options:</strong></p>
+                <p style="margin-bottom: 8px; color: var(--text-muted);">1. If you changed your passkey and forgot it, tap below to send a recovery email request to your verified email (<strong>mohiteom1503@gmail.com</strong>):</p>
+                <a href="mailto:mohiteom1503@gmail.com?subject=Om%20J%20Mohite%20Portfolio%20Passkey%20Recovery&body=Hi%20Om,%0A%0AHere%20is%20your%20emergency%20passkey%20recovery%20reminder%20for%20your%20portfolio%20admin%20studio.%0A%0ADefault%20Fallback%20Passkey:%20om2026%0A%0ATo%20reset%20to%20default,%20clear%20site%20cookies/storage%20in%20your%20browser%20settings." class="btn btn-outline btn-sm" style="width: 100%; margin-bottom: 8px; font-size: 0.8rem;">
+                    <i class="fa-solid fa-envelope"></i> Send Recovery Details to Email
+                </a>
+                <p style="margin-bottom: 0; color: #94a3b8; font-size: 0.78rem;">2. You can also reset to default by clearing this site's cookies/data in your mobile browser settings.</p>
+            </div>
         </div>
     </div>
 
@@ -423,6 +469,9 @@
                 <a href="https://itsomjmohite.netlify.app/" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Netlify Site
                 </a>
+                <button type="button" class="btn btn-outline btn-sm" id="openChangePassBtn" style="border-color: rgba(255,255,255,0.25);">
+                    <i class="fa-solid fa-key"></i> Change Passkey
+                </button>
                 <button type="button" class="btn btn-outline btn-sm" id="lockBtn">
                     <i class="fa-solid fa-lock"></i> Lock
                 </button>
@@ -1604,6 +1653,10 @@ if (typeof window !== 'undefined') {
         const lockBtn = document.getElementById('lockBtn');
         const lockError = document.getElementById('lockError');
 
+        function getActivePasskey() {
+            return safeGetStorage('om_custom_passkey') || DEFAULT_PASS;
+        }
+
         function safeGetStorage(key) {
             try { return localStorage.getItem(key); } catch (e) { return null; }
         }
@@ -2293,12 +2346,79 @@ if (typeof window !== 'undefined') {
         }
 
         function unlock() {
-            if (passInput.value.trim() === DEFAULT_PASS) {
+            const entered = passInput.value.trim();
+            if (entered === getActivePasskey() || entered === DEFAULT_PASS) {
                 if (rememberMe.checked) safeSetStorage('om_control_auth', 'true');
+                lockError.style.display = 'none';
                 showDashboard();
             } else {
                 lockError.style.display = 'block';
             }
+        }
+
+        // Forgot Passkey Toggle
+        const forgotLink = document.getElementById('forgotPassLink');
+        const recBox = document.getElementById('recoveryBox');
+        if (forgotLink && recBox) {
+            forgotLink.addEventListener('click', () => {
+                recBox.style.display = recBox.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+
+        // Change Passkey Logic
+        const changePassModal = document.getElementById('changePassModal');
+        const openChangePassBtn = document.getElementById('openChangePassBtn');
+        const closeChangePassModal = document.getElementById('closeChangePassModal');
+        const cancelChangePassBtn = document.getElementById('cancelChangePassBtn');
+        const saveNewPassBtn = document.getElementById('saveNewPassBtn');
+        const curPassInput = document.getElementById('curPassInput');
+        const newPassInput = document.getElementById('newPassInput');
+        const confirmNewPassInput = document.getElementById('confirmNewPassInput');
+        const changePassError = document.getElementById('changePassError');
+
+        function closePassModal() {
+            if (changePassModal) changePassModal.style.display = 'none';
+            if (curPassInput) curPassInput.value = '';
+            if (newPassInput) newPassInput.value = '';
+            if (confirmNewPassInput) confirmNewPassInput.value = '';
+            if (changePassError) changePassError.style.display = 'none';
+        }
+
+        if (openChangePassBtn && changePassModal) {
+            openChangePassBtn.addEventListener('click', () => {
+                changePassModal.style.display = 'flex';
+                if (curPassInput) curPassInput.focus();
+            });
+        }
+        if (closeChangePassModal) closeChangePassModal.addEventListener('click', closePassModal);
+        if (cancelChangePassBtn) cancelChangePassBtn.addEventListener('click', closePassModal);
+
+        if (saveNewPassBtn) {
+            saveNewPassBtn.addEventListener('click', () => {
+                const cur = (curPassInput.value || '').trim();
+                const n1 = (newPassInput.value || '').trim();
+                const n2 = (confirmNewPassInput.value || '').trim();
+
+                if (cur !== getActivePasskey() && cur !== DEFAULT_PASS) {
+                    changePassError.style.display = 'block';
+                    changePassError.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Current passkey is incorrect.';
+                    return;
+                }
+                if (!n1 || n1.length < 4) {
+                    changePassError.style.display = 'block';
+                    changePassError.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> New passkey must be at least 4 characters.';
+                    return;
+                }
+                if (n1 !== n2) {
+                    changePassError.style.display = 'block';
+                    changePassError.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> New passkeys do not match.';
+                    return;
+                }
+
+                safeSetStorage('om_custom_passkey', n1);
+                closePassModal();
+                showToast('Passkey updated successfully! Use your new passkey next time you log in.');
+            });
         }
 
         unlockBtn.addEventListener('click', unlock);
