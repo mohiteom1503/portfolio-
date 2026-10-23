@@ -2464,20 +2464,39 @@
             </div>
         </div>
 
-        <div style="margin-top: 22px;">
+        <div style="margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
             <a href="https://itsomjmohite.netlify.app" class="dev-badge">
                 <span>💻 Designed &amp; Engineered by</span> 
                 <span style="color: #FF6B35; font-weight: 700;">Om J. Mohite</span>
                 <i class="fa-solid fa-arrow-up-right-from-square" style="color: #FF6B35; font-size: 0.8rem;"></i>
             </a>
+            <a href="admin.html" class="dev-badge" title="Open Admin Control Studio" style="opacity: 0.75;">
+                <i class="fa-solid fa-sliders" style="color: #10B981; font-size: 0.8rem;"></i>
+                <span>Admin Studio</span>
+            </a>
         </div>
     </footer>
 
     <!-- Load Centralized Projects Data -->
+    <!-- Floating Admin Live Quick-Bar (Visible when Admin is authenticated or ?admin=1) -->
+    <div id="floatingAdminBar" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: rgba(18, 18, 23, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(16, 185, 129, 0.45); border-radius: 999px; padding: 8px 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.6); align-items: center; gap: 10px; font-size: 0.84rem; color: #f3f4f6;">
+        <span style="display: inline-flex; align-items: center; gap: 6px; color: #34d399; font-weight: 600;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+            Live Sync Ready
+        </span>
+        <button type="button" id="toggleInlineEditBtn" style="background: rgba(255, 107, 53, 0.15); border: 1px solid rgba(255, 107, 53, 0.4); color: #FF6B35; padding: 5px 12px; border-radius: 999px; cursor: pointer; font-family: inherit; font-weight: 600; font-size: 0.8rem;">
+            <i class="fa-solid fa-pen-to-square"></i> Edit Text on Page
+        </button>
+        <a href="admin.html" style="background: #FF6B35; color: #000; padding: 5px 12px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">
+            <i class="fa-solid fa-sliders"></i> Open Studio
+        </a>
+    </div>
+
+    <!-- Load Centralized Portfolio Data -->
     <script src="portfolio-data.js"></script>
     <script src="projects.js"></script>
 
-    <!-- Interactive JavaScript: Dynamic Project Renderer & Slider -->
+    <!-- Interactive JavaScript: Universal Live Hydration & Real-Time Sync Engine -->
     <script>
         // 1. Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -2491,128 +2510,537 @@
             });
         }
 
-        // 2. Dynamic Project Rendering from projects.js (if available)
-        const slider = document.getElementById('projectSlider');
-        const dotsContainer = document.getElementById('sliderDots');
-
-        if (typeof portfolioProjects !== 'undefined' && Array.isArray(portfolioProjects) && portfolioProjects.length > 0 && slider && dotsContainer) {
-            slider.innerHTML = portfolioProjects.map(p => {
-                const isGold = (p.category && p.category.toLowerCase().includes('jewel')) || (p.tags && p.tags.some(t => t.toLowerCase().includes('gold') || t.toLowerCase().includes('bullion')));
-                const isBelagavi = (p.tags && p.tags.some(t => t.toLowerCase().includes('belagavi')));
-                
-                const tagsHtml = (p.tags || []).map(t => {
-                    let cls = 'tag';
-                    if (t.toLowerCase().includes('bullion') || t.toLowerCase().includes('jewel')) cls += ' tag-gold';
-                    else if (t.toLowerCase().includes('belagavi')) cls += ' tag-orange';
-                    return `<span class="${cls}">${t}</span>`;
-                }).join('');
-
-                const highlightsHtml = (p.highlights || []).map(h => {
-                    if (h.includes(':')) {
-                        const parts = h.split(':');
-                        return `<li><i class="fa-solid fa-check"></i> <strong>${parts[0]}:</strong>${parts.slice(1).join(':')}</li>`;
-                    }
-                    return `<li><i class="fa-solid fa-check"></i> ${h}</li>`;
-                }).join('');
-
-                const techHtml = (p.techStack || []).map(t => `<span class="tech-pill">${t}</span>`).join('');
-                const dispUrl = p.displayUrl || p.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
-                const waUrl = `https://wa.me/919604964299?text=${encodeURIComponent('Hi Om, I saw the ' + p.title + ' website you developed.')}`;
-
-                return `
-                <article class="project-card">
-                    <div>
-                        <div class="project-card-header">
-                            <div class="project-tags">
-                                ${tagsHtml}
-                            </div>
-                            <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="live-url-pill" title="Visit Live Site">
-                                <span class="status-live"><span class="pulse-dot"></span></span> ${dispUrl} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
-                            </a>
-                        </div>
-                        <h3>${p.title}</h3>
-                        <p class="project-desc">${p.description}</p>
-                        
-                        <ul class="project-highlights">
-                            ${highlightsHtml}
-                        </ul>
-                    </div>
-
-                    <div>
-                        <div class="tech-stack">
-                            ${techHtml}
-                        </div>
-
-                        <div class="project-actions">
-                            <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                                Visit Live Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                            <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                                Inquire Similar <i class="fa-brands fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>`;
-            }).join('');
-
-            dotsContainer.innerHTML = portfolioProjects.map((_, i) => `
-                <button class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Slide ${i + 1}"></button>
-            `).join('');
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
         }
 
-        // Dynamic Pricing Hydration from projects.js
-        if (typeof portfolioPricing !== 'undefined' && Array.isArray(portfolioPricing)) {
-            const pCards = document.querySelectorAll('.pricing-card');
-            portfolioPricing.forEach((item, idx) => {
-                if (pCards[idx]) {
-                    const amt = pCards[idx].querySelector('.price-wrap .amount');
-                    if (amt && item.price) amt.textContent = item.price;
-                    const title = pCards[idx].querySelector('h3');
-                    if (title && item.title) title.textContent = item.title;
+        // 2. Universal Portfolio Renderer (Updates 100% of sections instantaneously)
+        function renderFullPortfolio(data) {
+            if (!data || typeof data !== 'object') return;
+            const cleanWaNum = ((data.socials && data.socials.whatsapp) ? data.socials.whatsapp : '+919604964299').replace(/[^0-9]/g, '');
+
+            // A. Hero & Trust Metrics Hydration
+            if (data.hero) {
+                const h = data.hero;
+                const badgeEl = document.querySelector('.hero .location-badge');
+                if (badgeEl && h.badge) {
+                    badgeEl.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${escapeHtml(h.badge)}`;
                 }
-            });
-        }
-
-        // 3. Carousel Slider Controls (Swipe & Navigation Buttons)
-        const prevBtn = document.getElementById('prevSlideBtn');
-        const nextBtn = document.getElementById('nextSlideBtn');
-        const dots = document.querySelectorAll('.slider-dot');
-
-        if (slider && prevBtn && nextBtn) {
-            function getScrollAmount() {
-                const firstCard = slider.querySelector('.project-card');
-                return firstCard ? firstCard.offsetWidth + 28 : 400;
+                const h1El = document.querySelector('.hero h1');
+                if (h1El && (h.titlePrefix || h.titleHighlight || h.titleSuffix)) {
+                    h1El.innerHTML = `${escapeHtml(h.titlePrefix || '')} <span class="gradient-text">${escapeHtml(h.titleHighlight || '')}</span> ${escapeHtml(h.titleSuffix || '')}`;
+                }
+                const subEl = document.querySelector('.hero .hero-content > p');
+                if (subEl && h.subtitle) {
+                    subEl.textContent = h.subtitle;
+                }
+                const heroBtns = document.querySelectorAll('.hero .hero-buttons a');
+                if (heroBtns.length >= 2) {
+                    if (h.primaryBtnText) {
+                        heroBtns[0].innerHTML = `<i class="fa-solid fa-laptop-code"></i> ${escapeHtml(h.primaryBtnText)}`;
+                    }
+                    if (h.secondaryBtnText) {
+                        heroBtns[1].innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${escapeHtml(h.secondaryBtnText)}`;
+                    }
+                    const greet = h.whatsappGreeting || 'Hi Om, I am interested in building a website for my business.';
+                    heroBtns[1].href = `https://wa.me/${cleanWaNum}?text=${encodeURIComponent(greet)}`;
+                }
+                const credSpans = document.querySelectorAll('.hero .hero-social-strip span.social-pill');
+                if (credSpans.length > 0 && h.credentialPill) {
+                    credSpans[0].innerHTML = `<i class="fa-solid fa-award" style="color: #fbbf24;"></i> ${escapeHtml(h.credentialPill)}`;
+                }
+                if (Array.isArray(h.metrics) && h.metrics.length > 0) {
+                    const metricsGrid = document.querySelector('.metrics-grid');
+                    if (metricsGrid) {
+                        metricsGrid.innerHTML = h.metrics.map(m => `
+                            <div class="metric-item">
+                                <div class="metric-icon"><i class="${escapeHtml(m.icon || 'fa-solid fa-bolt')}"></i></div>
+                                <div class="metric-info">
+                                    <h4>${escapeHtml(m.value)}</h4>
+                                    <p>${escapeHtml(m.label)}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                }
             }
 
+            // B. Featured Projects Carousel Hydration
+            if (data.workSubtitle) {
+                const workSub = document.querySelector('#work .section-subtitle');
+                if (workSub) workSub.textContent = data.workSubtitle;
+            }
+            const slider = document.getElementById('projectSlider');
+            const dotsContainer = document.getElementById('sliderDots');
+            const projectsList = Array.isArray(data.projects) ? data.projects : [];
+
+            if (slider && dotsContainer && projectsList.length > 0) {
+                slider.innerHTML = projectsList.map(p => {
+                    const tagsArr = (Array.isArray(p.tags) && p.tags.length > 0) ? p.tags : [p.category || 'Web Platform', p.location || 'Belagavi'];
+                    const tagsHtml = tagsArr.map(t => {
+                        let cls = 'tag';
+                        const tl = String(t).toLowerCase();
+                        if (tl.includes('bullion') || tl.includes('jewel') || tl.includes('gold')) cls += ' tag-gold';
+                        else if (tl.includes('belagavi')) cls += ' tag-orange';
+                        return `<span class="${cls}">${escapeHtml(t)}</span>`;
+                    }).join('');
+
+                    const highlightsHtml = (p.highlights || []).filter(Boolean).map(h => {
+                        const str = String(h);
+                        if (str.includes(':')) {
+                            const parts = str.split(':');
+                            return `<li><i class="fa-solid fa-check"></i> <strong>${escapeHtml(parts[0])}:</strong>${escapeHtml(parts.slice(1).join(':'))}</li>`;
+                        }
+                        return `<li><i class="fa-solid fa-check"></i> ${escapeHtml(str)}</li>`;
+                    }).join('');
+
+                    const techHtml = (p.techStack || []).filter(Boolean).map(t => `<span class="tech-pill">${escapeHtml(t)}</span>`).join('');
+                    const dispUrl = p.displayUrl || String(p.url || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+                    const waUrl = `https://wa.me/${cleanWaNum}?text=${encodeURIComponent('Hi Om, I saw the ' + p.title + ' website you developed.')}`;
+
+                    return `
+                    <article class="project-card">
+                        <div>
+                            <div class="project-card-header">
+                                <div class="project-tags">
+                                    ${tagsHtml}
+                                </div>
+                                <a href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" class="live-url-pill" title="Visit Live Site">
+                                    <span class="status-live"><span class="pulse-dot"></span></span> ${escapeHtml(dispUrl)} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                                </a>
+                            </div>
+                            <h3>${escapeHtml(p.title)}</h3>
+                            <p class="project-desc">${escapeHtml(p.description)}</p>
+                            <ul class="project-highlights">
+                                ${highlightsHtml}
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="tech-stack">
+                                ${techHtml}
+                            </div>
+                            <div class="project-actions">
+                                <a href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                                    Visit Live Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                                    Inquire Similar <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>`;
+                }).join('');
+
+                dotsContainer.innerHTML = projectsList.map((_, i) => `
+                    <button class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Slide ${i + 1}"></button>
+                `).join('');
+
+                dotsContainer.querySelectorAll('.slider-dot').forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        const idx = parseInt(dot.dataset.index, 10) || 0;
+                        const firstCard = slider.querySelector('.project-card');
+                        const cardWidth = firstCard ? firstCard.offsetWidth + 28 : 400;
+                        slider.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+                    });
+                });
+            }
+
+            // C. Services ("What I Deliver") Hydration
+            if (data.services) {
+                const srvSub = document.querySelector('#services .section-subtitle');
+                if (srvSub && data.services.subtitle) srvSub.textContent = data.services.subtitle;
+                if (Array.isArray(data.services.items) && data.services.items.length > 0) {
+                    const srvGrid = document.querySelector('#services .services-grid');
+                    if (srvGrid) {
+                        srvGrid.innerHTML = data.services.items.map(s => `
+                            <div class="service-box">
+                                <div class="service-icon-wrap">
+                                    <i class="${escapeHtml(s.icon || 'fa-solid fa-bolt')}"></i>
+                                </div>
+                                <h3>${escapeHtml(s.title)}</h3>
+                                <p>${escapeHtml(s.desc)}</p>
+                            </div>
+                        `).join('');
+                    }
+                }
+            }
+
+            // D. Bio & Story ("Behind the Code") Hydration
+            if (data.bio) {
+                const bio = data.bio;
+                const bioSub = document.querySelector('#about .section-subtitle');
+                if (bioSub && bio.subtitle) bioSub.textContent = bio.subtitle;
+                const bioBadge = document.querySelector('#about .about-header-badge .badge');
+                if (bioBadge && bio.badge) bioBadge.innerHTML = `<i class="fa-solid fa-user-check"></i> ${escapeHtml(bio.badge)}`;
+                const bioHeading = document.querySelector('#about .about-text-card h3');
+                if (bioHeading && bio.heading) bioHeading.textContent = bio.heading;
+                const leadEl = document.querySelector('.about-lead');
+                if (leadEl && bio.lead) leadEl.textContent = bio.lead;
+
+                if (Array.isArray(bio.points) && bio.points.length > 0) {
+                    const pointsList = document.querySelector('.bio-points-list');
+                    if (pointsList) {
+                        pointsList.innerHTML = bio.points.map(pt => `
+                            <div class="bio-point-item">
+                                <div class="bio-point-icon"><i class="${escapeHtml(pt.icon || 'fa-solid fa-code')}"></i></div>
+                                <div class="bio-point-content">
+                                    <h4>${escapeHtml(pt.title)}</h4>
+                                    <p>${escapeHtml(pt.desc)}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                }
+                if (bio.quote) {
+                    const quoteEl = document.querySelector('.bio-quote-strip p');
+                    if (quoteEl) quoteEl.textContent = `"${String(bio.quote).replace(/^["']|["']$/g, '')}"`;
+                }
+                if (Array.isArray(bio.stats) && bio.stats.length > 0) {
+                    const statsGrid = document.querySelector('.about-highlights-grid');
+                    if (statsGrid) {
+                        statsGrid.innerHTML = bio.stats.map(st => `
+                            <div class="about-stat-box">
+                                <div class="stat-icon"><i class="${escapeHtml(st.icon || 'fa-solid fa-laptop-code')}"></i></div>
+                                <h4>${escapeHtml(st.title)}</h4>
+                                <p>${escapeHtml(st.desc)}</p>
+                            </div>
+                        `).join('');
+                    }
+                }
+            }
+
+            // E. Pricing Packages Hydration (Full Card Rebuild: Badge, Title, Desc, Price, Features, Turnaround, CTA)
+            if (data.pricingSubtitle) {
+                const prSub = document.querySelector('#pricing .section-subtitle');
+                if (prSub) prSub.textContent = data.pricingSubtitle;
+            }
+            if (Array.isArray(data.pricing) && data.pricing.length > 0) {
+                const pricingGrid = document.querySelector('#pricing .pricing-grid');
+                if (pricingGrid) {
+                    pricingGrid.innerHTML = data.pricing.map((tier, idx) => {
+                        const isFeat = Boolean(tier.featured || idx === 1);
+                        const badgeCls = idx === 0 ? 'badge-orange' : (idx === 1 ? 'badge-green' : 'badge-blue');
+                        const ribbonHtml = (tier.ribbon || (isFeat ? 'Most Popular' : ''))
+                            ? `<div class="popular-ribbon">${escapeHtml(tier.ribbon || 'Most Popular')}</div>`
+                            : '';
+                        const featuresArr = Array.isArray(tier.features) ? tier.features : [];
+                        const featuresHtml = featuresArr.filter(Boolean).map(f => `<li><i class="fa-solid fa-check"></i> ${escapeHtml(f)}</li>`).join('');
+                        const btnCls = isFeat ? 'btn btn-primary' : 'btn btn-outline';
+                        const btnLabel = tier.btnText || (idx === 0 ? 'Choose Starter' : (idx === 1 ? 'Choose Professional' : 'Discuss Custom Suite'));
+                        const waText = `Hi Om, I am interested in the ${tier.title} Package (₹${tier.price}).`;
+
+                        return `
+                        <div class="pricing-card ${isFeat ? 'featured' : ''}">
+                            ${ribbonHtml}
+                            <div>
+                                <div class="pricing-header">
+                                    <span class="badge ${badgeCls}">${escapeHtml(tier.badge || 'Package')}</span>
+                                    <h3>${escapeHtml(tier.title)}</h3>
+                                    <p class="pricing-desc">${escapeHtml(tier.desc || '')}</p>
+                                    <div class="price-wrap">
+                                        <span class="currency">₹</span><span class="amount">${escapeHtml(tier.price)}</span>
+                                        <span class="billing">${escapeHtml(tier.billing || 'one-time')}</span>
+                                    </div>
+                                </div>
+                                <ul class="pricing-features">
+                                    ${featuresHtml}
+                                    <li><i class="fa-solid fa-clock"></i> <strong>Turnaround: ${escapeHtml(tier.days || '3–5 Business Days')}</strong></li>
+                                </ul>
+                            </div>
+                            <div class="pricing-action">
+                                <a href="https://wa.me/${cleanWaNum}?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener noreferrer" class="${btnCls}" style="width: 100%;">
+                                    ${escapeHtml(btnLabel)} <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>`;
+                    }).join('');
+                }
+            }
+
+            // F. Reviews & Google Profile Hydration
+            if (data.reviews) {
+                const rev = data.reviews;
+                const revSub = document.querySelector('#reviews .section-subtitle');
+                if (revSub && rev.subtitle) revSub.textContent = rev.subtitle;
+                const rNum = document.getElementById('googleRatingNum');
+                if (rNum && rev.googleRating) rNum.textContent = rev.googleRating;
+                const rCount = document.getElementById('googleReviewCount');
+                if (rCount && rev.reviewCount) rCount.textContent = rev.reviewCount;
+                const rBadgeP = document.querySelector('.google-badge-text p');
+                if (rBadgeP && rev.badgeText) rBadgeP.textContent = rev.badgeText;
+                const rBtn = document.getElementById('googleReviewBtn');
+                if (rBtn && rev.googleReviewUrl) rBtn.href = rev.googleReviewUrl;
+
+                if (Array.isArray(rev.testimonials) && rev.testimonials.length > 0) {
+                    const rContainer = document.getElementById('reviewsContainer');
+                    if (rContainer) {
+                        rContainer.innerHTML = rev.testimonials.map((t, idx) => {
+                            const avatarBg = idx % 2 === 1 ? 'background: rgba(251, 191, 36, 0.15); color: #fbbf24;' : '';
+                            const initial = t.name ? String(t.name).charAt(0).toUpperCase() : 'C';
+                            const starCount = Math.min(5, Math.max(1, parseInt(t.rating, 10) || 5));
+                            const stars = Array(starCount).fill('<i class="fa-solid fa-star"></i>').join('');
+                            const linkHtml = t.url ? `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener noreferrer" style="color: #60a5fa; font-size: 0.78rem; text-decoration: none;">Visit Live Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : '';
+                            const subRole = [t.role, t.client].filter(Boolean).join(' • ');
+                            return `
+                            <article class="review-card">
+                                <div>
+                                    <div class="review-stars">${stars}</div>
+                                    <p class="review-quote">"${escapeHtml(String(t.quote || '').replace(/^["']|["']$/g, ''))}"</p>
+                                </div>
+                                <div class="reviewer-meta">
+                                    <div class="reviewer-avatar" style="${avatarBg}">${escapeHtml(initial)}</div>
+                                    <div class="reviewer-info">
+                                        <h5>${escapeHtml(t.name)}</h5>
+                                        <p>${escapeHtml(subRole)}</p>
+                                        ${linkHtml}
+                                    </div>
+                                </div>
+                            </article>`;
+                        }).join('');
+                    }
+                }
+            }
+
+            // G. FAQs Hydration
+            if (data.faqs) {
+                const faqSub = document.querySelector('#faq .section-subtitle');
+                if (faqSub && data.faqs.subtitle) faqSub.textContent = data.faqs.subtitle;
+                if (Array.isArray(data.faqs.items) && data.faqs.items.length > 0) {
+                    const faqGrid = document.querySelector('#faq .faq-grid');
+                    if (faqGrid) {
+                        faqGrid.innerHTML = data.faqs.items.map((f, idx) => `
+                            <details class="faq-card" ${idx === 0 ? 'open' : ''}>
+                                <summary class="faq-question">
+                                    <span>${escapeHtml(f.question)}</span>
+                                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                                </summary>
+                                <div class="faq-answer">
+                                    ${escapeHtml(f.answer)}
+                                </div>
+                            </details>
+                        `).join('');
+                    }
+                }
+            }
+
+            // H. Socials & Footer Hydration
+            if (data.socials) {
+                const soc = data.socials;
+                const fHead = document.querySelector('#contact .footer-content h2');
+                if (fHead && soc.footerHeading) fHead.textContent = soc.footerHeading;
+                const fSub = document.querySelector('#contact .footer-sub');
+                if (fSub && soc.footerSub) fSub.textContent = soc.footerSub;
+                const copyEl = document.querySelector('#contact .copyright');
+                if (copyEl && soc.copyright) copyEl.textContent = soc.copyright;
+
+                if (soc.whatsapp) {
+                    const cleanWa = soc.whatsapp.replace(/[^0-9]/g, '');
+                    document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+                        try {
+                            const urlObj = new URL(a.href);
+                            const textParam = urlObj.searchParams.get('text');
+                            a.href = `https://wa.me/${cleanWa}${textParam ? '?text=' + encodeURIComponent(textParam) : ''}`;
+                        } catch (e) {}
+                    });
+                }
+                if (soc.phone) {
+                    document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+                        a.href = `tel:${soc.phone.replace(/\s+/g, '')}`;
+                        if (a.classList.contains('contact-item')) {
+                            a.innerHTML = `<i class="fa-solid fa-phone"></i> ${escapeHtml(soc.phone)}`;
+                        }
+                    });
+                }
+                if (soc.email) {
+                    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+                        a.href = `mailto:${soc.email}`;
+                        if (a.classList.contains('contact-item')) {
+                            a.innerHTML = `<i class="fa-solid fa-envelope"></i> ${escapeHtml(soc.email)}`;
+                        }
+                    });
+                }
+                if (soc.location) {
+                    document.querySelectorAll('#contact .contact-item').forEach(el => {
+                        if (!el.hasAttribute('href')) {
+                            el.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${escapeHtml(soc.location)}`;
+                        }
+                    });
+                }
+                if (soc.github) {
+                    document.querySelectorAll('a[title*="GitHub"]').forEach(a => { a.href = soc.github; });
+                }
+                if (soc.linkedin) {
+                    document.querySelectorAll('a[title*="LinkedIn"]').forEach(a => { a.href = soc.linkedin; });
+                }
+                if (soc.instagram) {
+                    document.querySelectorAll('a[title*="Instagram"]').forEach(a => { a.href = soc.instagram; });
+                }
+            }
+        }
+
+        // Initial render from portfolioData (which already merges localStorage 'om_portfolio_live_v12')
+        if (typeof window.portfolioData !== 'undefined') {
+            renderFullPortfolio(window.portfolioData);
+        }
+
+        // 3. Real-Time Cross-Tab & Split-Screen Sync Listener (0ms Instant Live Updates)
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'om_portfolio_live_v12' && e.newValue) {
+                try {
+                    const updated = JSON.parse(e.newValue);
+                    window.portfolioData = updated;
+                    renderFullPortfolio(updated);
+                } catch (err) {}
+            }
+        });
+
+        try {
+            const bc = new BroadcastChannel('om_portfolio_sync');
+            bc.onmessage = (ev) => {
+                if (ev.data && ev.data.type === 'PORTFOLIO_UPDATE' && ev.data.payload) {
+                    window.portfolioData = ev.data.payload;
+                    renderFullPortfolio(ev.data.payload);
+                }
+            };
+        } catch (e) {}
+
+        window.addEventListener('message', (ev) => {
+            if (ev.data && ev.data.type === 'PORTFOLIO_UPDATE' && ev.data.payload) {
+                window.portfolioData = ev.data.payload;
+                renderFullPortfolio(ev.data.payload);
+            }
+        });
+
+        // 4. Live Cloud JSON & Cache-Busted Server Sync (Ensures all visitors see fresh changes immediately)
+        async function fetchFreshPortfolioData() {
+            const hasLocalAdminOverride = (() => {
+                try { return Boolean(localStorage.getItem('om_portfolio_live_v12')); } catch (e) { return false; }
+            })();
+
+            // Check if a live Cloud JSON DB URL is configured
+            let cloudUrl = (window.portfolioData && window.portfolioData.syncConfig && window.portfolioData.syncConfig.cloudJsonUrl) || '';
+            try {
+                const storedCloud = localStorage.getItem('om_cloud_json_url');
+                if (storedCloud) cloudUrl = storedCloud;
+            } catch (e) {}
+
+            if (cloudUrl && cloudUrl.startsWith('http')) {
+                try {
+                    const sep = cloudUrl.includes('?') ? '&' : '?';
+                    const res = await fetch(`${cloudUrl}${sep}_t=${Date.now()}`, { cache: 'no-store' });
+                    if (res.ok) {
+                        const cloudData = await res.json();
+                        const unwrapped = (cloudData && cloudData.record) ? cloudData.record : cloudData;
+                        if (unwrapped && unwrapped.projects) {
+                            window.portfolioData = unwrapped;
+                            renderFullPortfolio(unwrapped);
+                            return;
+                        }
+                    }
+                } catch (e) {}
+            }
+
+            // Fallback: Fetch cache-busted projects.json from same origin if no un-synced local override
+            if (!hasLocalAdminOverride && window.location.protocol.startsWith('http')) {
+                try {
+                    const res = await fetch(`projects.json?_t=${Date.now()}`, { cache: 'no-store' });
+                    if (res.ok) {
+                        const serverData = await res.json();
+                        if (serverData && typeof serverData === 'object' && Array.isArray(serverData.projects)) {
+                            window.portfolioData = Object.assign({}, window.portfolioData, serverData);
+                            renderFullPortfolio(window.portfolioData);
+                        }
+                    }
+                } catch (e) {}
+            }
+        }
+        fetchFreshPortfolioData();
+
+        // 5. Carousel Slider Controls
+        const sliderEl = document.getElementById('projectSlider');
+        const prevBtn = document.getElementById('prevSlideBtn');
+        const nextBtn = document.getElementById('nextSlideBtn');
+
+        if (sliderEl && prevBtn && nextBtn) {
+            function getScrollAmount() {
+                const firstCard = sliderEl.querySelector('.project-card');
+                return firstCard ? firstCard.offsetWidth + 28 : 400;
+            }
             prevBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                sliderEl.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
             });
-
             nextBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                sliderEl.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
             });
-
-            // Update active dot on scroll
-            slider.addEventListener('scroll', () => {
-                const scrollLeft = slider.scrollLeft;
+            sliderEl.addEventListener('scroll', () => {
+                const scrollLeft = sliderEl.scrollLeft;
                 const cardWidth = getScrollAmount();
                 const activeIndex = Math.round(scrollLeft / cardWidth);
-
                 document.querySelectorAll('.slider-dot').forEach((dot, idx) => {
                     dot.classList.toggle('active', idx === activeIndex);
                 });
             });
-
-            // Dot navigation click
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const idx = parseInt(dot.dataset.index);
-                    const targetLeft = idx * getScrollAmount();
-                    slider.scrollTo({ left: targetLeft, behavior: 'smooth' });
-                });
-            });
         }
-    </script>
 
-    </body>
+        // 6. Floating Admin Bar & In-Page Visual Text Editor (when authenticated as Om)
+        (function initAdminQuickBar() {
+            let isAuthed = false;
+            try {
+                isAuthed = localStorage.getItem('om_control_auth') === 'true' || window.location.search.includes('admin=1') || window.location.hash === '#admin';
+            } catch (e) {}
+            const bar = document.getElementById('floatingAdminBar');
+            const editBtn = document.getElementById('toggleInlineEditBtn');
+            if (!bar || !isAuthed) return;
+            bar.style.display = 'inline-flex';
+
+            let inlineActive = false;
+            editBtn.addEventListener('click', () => {
+                inlineActive = !inlineActive;
+                if (inlineActive) {
+                    editBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Save Inline Edits';
+                    editBtn.style.background = '#10B981';
+                    editBtn.style.color = '#000';
+                    document.querySelectorAll('.hero h1, .hero .hero-content > p, .about-lead, .bio-quote-strip p, #contact .footer-content h2, #contact .footer-sub').forEach(el => {
+                        el.contentEditable = 'true';
+                        el.style.outline = '1px dashed #FF6B35';
+                        el.style.borderRadius = '6px';
+                    });
+                } else {
+                    editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit Text on Page';
+                    editBtn.style.background = 'rgba(255, 107, 53, 0.15)';
+                    editBtn.style.color = '#FF6B35';
+                    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                        el.contentEditable = 'false';
+                        el.style.outline = '';
+                    });
+                    // Sync inline edits back to portfolioData
+                    const d = window.portfolioData || {};
+                    d.hero = d.hero || {};
+                    const subEl = document.querySelector('.hero .hero-content > p');
+                    if (subEl) d.hero.subtitle = subEl.textContent.trim();
+                    d.bio = d.bio || {};
+                    const leadEl = document.querySelector('.about-lead');
+                    if (leadEl) d.bio.lead = leadEl.textContent.trim();
+                    const quoteEl = document.querySelector('.bio-quote-strip p');
+                    if (quoteEl) d.bio.quote = quoteEl.textContent.trim().replace(/^["']|["']$/g, '');
+                    d.socials = d.socials || {};
+                    const fHead = document.querySelector('#contact .footer-content h2');
+                    if (fHead) d.socials.footerHeading = fHead.textContent.trim();
+                    const fSub = document.querySelector('#contact .footer-sub');
+                    if (fSub) d.socials.footerSub = fSub.textContent.trim();
+
+                    try {
+                        localStorage.setItem('om_portfolio_live_v12', JSON.stringify(d));
+                        const bc = new BroadcastChannel('om_portfolio_sync');
+                        bc.postMessage({ type: 'PORTFOLIO_UPDATE', payload: d });
+                    } catch (e) {}
+                }
+            });
+        })();
+    </script>
+</body>
 </html>

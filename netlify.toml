@@ -12,22 +12,52 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Link = '<https://itsomjmohite.netlify.app/llms.txt>; rel="describedby"'
 
+# Instant Live Updates: Prevent stale browser caching on dynamic data & HTML files
+[[headers]]
+  for = "/portfolio-data.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/projects.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/projects.json"
+  [headers.values]
+    Content-Type = "application/json; charset=UTF-8"
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/admin.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # Dedicated MIME type and headers for LLM discovery standard
 [[headers]]
   for = "/llms.txt"
   [headers.values]
     Content-Type = "text/markdown; charset=UTF-8"
     Access-Control-Allow-Origin = "*"
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/llms-full.txt"
   [headers.values]
     Content-Type = "text/markdown; charset=UTF-8"
     Access-Control-Allow-Origin = "*"
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
-# Static assets caching
+# Static image assets caching
 [[headers]]
   for = "/*.png"
   [headers.values]
