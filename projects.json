@@ -1,7 +1,7 @@
 {
   "syncConfig": {
     "cloudJsonUrl": "",
-    "lastUpdated": "2026-10-18T13:05:00+05:30"
+    "lastUpdated": "2026-10-24T19:25:23.448Z"
   },
   "hero": {
     "badge": "Belagavi, Karnataka • Available for Projects",
@@ -39,6 +39,33 @@
   "workSubtitle": "Real-world production web platforms engineered for speed, conversions, and local market impact.",
   "projects": [
     {
+      "id": "om-sai-jewellers",
+      "title": "Om Sai Jewellers",
+      "url": "https://omsaijewellersbgm.netlify.app",
+      "displayUrl": "omsaijewellersbgm.netlify.app",
+      "image": "omsai-preview.png",
+      "category": "Luxury Jewellery & Retail",
+      "location": "Shahapur, Belagavi",
+      "tags": [
+        "Jewellery & Retail",
+        "Live Bullion Rates",
+        "Shahapur, Belagavi"
+      ],
+      "description": "Built a luxury digital storefront for Belagavi’s renowned jewellery showroom in Shahapur. Engineered with real-time hourly bullion market rates (24K Gold, 22K Gold, 925 Pure Silver) via StockeZee, an interactive metal price calculator, collection lookbooks, and instant WhatsApp inquiry pipelines.",
+      "highlights": [
+        "Live Market Bullion Ticker: Real-time gold and silver spot prices updated dynamically",
+        "Interactive Cost Calculator: Empowers shoppers to calculate exact prices based on weight & purity",
+        "100% BIS Hallmarked Trust: Prominent trust badges and daily wear collection showcases"
+      ],
+      "techStack": [
+        "HTML5 / Modern JS",
+        "CSS Grid",
+        "Live Rates API",
+        "WhatsApp API",
+        "Netlify"
+      ]
+    },
+    {
       "id": "shri-kamakshi-clinic",
       "title": "Shri Kamakshi Clinic & Orthopaedic Centre",
       "url": "https://shrikamakshiclinic.netlify.app",
@@ -66,31 +93,30 @@
       ]
     },
     {
-      "id": "om-sai-jewellers",
-      "title": "Om Sai Jewellers",
-      "url": "https://omsaijewellersbgm.netlify.app",
-      "displayUrl": "omsaijewellersbgm.netlify.app",
-      "image": "omsai-preview.png",
-      "category": "Luxury Jewellery & Retail",
-      "location": "Shahapur, Belagavi",
+      "id": "om-sai-gold",
+      "title": "Om Sai Gold",
+      "url": "https://omsaigold.ai.studio",
+      "displayUrl": "omsaigold.ai.studio",
+      "category": "Bullion & Live rates",
+      "location": "Belagavi, Karnataka",
       "tags": [
-        "Jewellery & Retail",
+        "Bullion",
         "Live Bullion Rates",
-        "Shahapur, Belagavi"
+        "Most Trusted"
       ],
-      "description": "Built a luxury digital storefront for Belagavi’s renowned jewellery showroom in Shahapur. Engineered with real-time hourly bullion market rates (24K Gold, 22K Gold, 925 Pure Silver) via StockeZee, an interactive metal price calculator, collection lookbooks, and instant WhatsApp inquiry pipelines.",
+      "description": "A mobile responsive webapp built for a renowned bullion business to display daily gold and silver bullion rates to their customers and merchants.The client needed a digital storefront to efficiently communicate daily fluctuating gold and silver prices, reducing the need for customers to call or visit the store just to check rates.",
       "highlights": [
-        "Live Market Bullion Ticker: Real-time gold and silver spot prices updated dynamically",
-        "Interactive Cost Calculator: Empowers shoppers to calculate exact prices based on weight & purity",
-        "100% BIS Hallmarked Trust: Prominent trust badges and daily wear collection showcases"
+        "Mobile-optimized design: For quick smartphone access",
+        "Centralized daily rates: Reduces workload and phonecalls",
+        "Fast-loading: single-page HTML and CSS build."
       ],
       "techStack": [
-        "HTML5 / Modern JS",
-        "CSS Grid",
-        "Live Rates API",
-        "WhatsApp API",
-        "Netlify"
-      ]
+        "HTML5",
+        "Modern CSS",
+        "Responsive UI",
+        "Java Script"
+      ],
+      "image": "favicon.png"
     }
   ],
   "services": {
@@ -223,7 +249,7 @@
     "googleRating": "5.0",
     "reviewCount": "18",
     "badgeText": "Verified Local Web Engineering & UI/UX Design • Belagavi, Karnataka",
-    "googleReviewUrl": "https://maps.google.com/?q=Om+J+Mohite+Web+Development+Belagavi",
+    "googleReviewUrl": "https://share.google/jEPLIK8J81RiTHVr9",
     "testimonials": [
       {
         "name": "Dr. Amit S. Raikar",
@@ -275,7 +301,7 @@
     "location": "Belagavi, Karnataka, India",
     "github": "https://github.com/mohiteom1503",
     "linkedin": "https://www.linkedin.com/in/mohiteom1503",
-    "instagram": "https://www.instagram.com/itsomjmohite",
+    "instagram": "",
     "footerHeading": "Ready to build something great?",
     "footerSub": "I am currently accepting new freelance web development and redesign projects. Let's discuss your vision.",
     "copyright": "© 2026 Om J. Mohite. All rights reserved."
