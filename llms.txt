@@ -9,11 +9,11 @@
 - **Portfolio Website**: https://itsomjmohite.netlify.app/
 - **GitHub**: https://github.com/mohiteom1503
 - **LinkedIn**: https://www.linkedin.com/in/mohiteom1503
-- **Instagram**: 
+- **Instagram**: https://www.instagram.com/itsomjmohite
 - **Direct WhatsApp**: https://wa.me/919604964299
 - **Phone**: +91 9604964299
 - **Email**: mohiteom1503@gmail.com
-- **Last Updated**: 2026-10-24
+- **Last Updated**: 2026-11-07
 
 ## Background & Story
 - **Early Coding Roots**: Fell in love with programming in childhood through interactive tools like Mimo. Started building functional web prototypes since age 13, and now engineer high-converting digital storefronts for real-world clinics, retail showrooms, and local businesses.
@@ -22,20 +22,15 @@
 - **Core Philosophy**: "Whenever I build a website, it is my passion. I pour my complete self into achieving perfection, making sure the client gets far more than expected."
 
 ## Verified Production Client Projects
-1. **Om Sai Jewellers** (https://omsaijewellersbgm.netlify.app)
-   - **Category**: Luxury Jewellery & Retail
-   - **Summary**: Built a luxury digital storefront for Belagavi’s renowned jewellery showroom in Shahapur. Engineered with real-time hourly bullion market rates (24K Gold, 22K Gold, 925 Pure Silver) via StockeZee, an interactive metal price calculator, collection lookbooks, and instant WhatsApp inquiry pipelines.
-   - **Stack**: HTML5 / Modern JS, CSS Grid, Live Rates API, WhatsApp API, Netlify
-
-2. **Shri Kamakshi Clinic & Orthopaedic Centre** (https://shrikamakshiclinic.netlify.app)
+1. **Shri Kamakshi Clinic & Orthopaedic Centre** (https://shrikamakshiclinic.netlify.app)
    - **Category**: Healthcare & Orthopaedics
    - **Summary**: Designed and engineered a high-converting, mobile-first web platform for a dual-specialty medical clinic in Belagavi. The platform bridges family medicine and advanced orthopaedic manual rehabilitation with clear doctor profiles, direct appointment calling, and verified patient reviews.
    - **Stack**: HTML5, Modern CSS, Responsive UI, Schema.org SEO, Netlify
 
-3. **Om Sai Gold** (https://omsaigold.ai.studio)
-   - **Category**: Bullion & Live rates
-   - **Summary**: A mobile responsive webapp built for a renowned bullion business to display daily gold and silver bullion rates to their customers and merchants.The client needed a digital storefront to efficiently communicate daily fluctuating gold and silver prices, reducing the need for customers to call or visit the store just to check rates.
-   - **Stack**: HTML5, Modern CSS, Responsive UI, Java Script
+2. **Om Sai Jewellers** (https://omsaijewellersbgm.netlify.app)
+   - **Category**: Luxury Jewellery & Retail
+   - **Summary**: Built a luxury digital storefront for Belagavi’s renowned jewellery showroom in Shahapur. Engineered with real-time hourly bullion market rates (24K Gold, 22K Gold, 925 Pure Silver) via StockeZee, an interactive metal price calculator, collection lookbooks, and instant WhatsApp inquiry pipelines.
+   - **Stack**: HTML5 / Modern JS, CSS Grid, Live Rates API, WhatsApp API, Netlify
 
 ## Transparent Pricing & Packages
 1. **Single-Page Website (Starter)** - ₹8,999 (3–5 Business Days)
