@@ -13,7 +13,7 @@
 - **Direct WhatsApp**: https://wa.me/919604964299
 - **Phone**: +91 9604964299
 - **Email**: mohiteom1503@gmail.com
-- **Last Updated**: 2026-11-07
+- **Last Updated**: 2026-11-19
 
 ## Background & Story
 - **Early Coding Roots**: Fell in love with programming in childhood through interactive tools like Mimo. Started building functional web prototypes since age 13, and now engineer high-converting digital storefronts for real-world clinics, retail showrooms, and local businesses.
@@ -31,6 +31,11 @@
    - **Category**: Luxury Jewellery & Retail
    - **Summary**: Built a luxury digital storefront for Belagavi’s renowned jewellery showroom in Shahapur. Engineered with real-time hourly bullion market rates (24K Gold, 22K Gold, 925 Pure Silver) via StockeZee, an interactive metal price calculator, collection lookbooks, and instant WhatsApp inquiry pipelines.
    - **Stack**: HTML5 / Modern JS, CSS Grid, Live Rates API, WhatsApp API, Netlify
+
+3. **Om Sai Gold** (https://omsaigold.ai.studio)
+   - **Category**: Bullion & Live rates
+   - **Summary**: Try now
+   - **Stack**: HTML5, Modern CSS, Responsive UI, Schema.org SEO, Netlify
 
 ## Transparent Pricing & Packages
 1. **Single-Page Website (Starter)** - ₹8,999 (3–5 Business Days)
