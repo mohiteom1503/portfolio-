@@ -1,15 +1,15 @@
 // =========================================================================
 // Om J. Mohite Portfolio - Universal Central Data Store (v12 Live Sync)
-// Generated: 2026-11-07T07:57:44.259Z
+// Generated: 2026-11-19T18:59:53.918Z
 // =========================================================================
 
 const defaultPortfolioData = {
   "syncConfig": {
     "cloudJsonUrl": "",
-    "lastUpdated": "2026-11-07T07:55:19.177Z"
+    "lastUpdated": "2026-11-19T18:58:17.332Z"
   },
   "hero": {
-    "badge": "• Available for Projects",
+    "badge": "Belagavi, Karnataka • Available for Projects",
     "titlePrefix": "I engineer",
     "titleHighlight": "digital growth",
     "titleSuffix": "for local businesses.",
@@ -96,6 +96,33 @@ const defaultPortfolioData = {
         "WhatsApp API",
         "Netlify"
       ]
+    },
+    {
+      "id": "om-sai-gold",
+      "title": "Om Sai Gold",
+      "url": "https://omsaigold.ai.studio",
+      "displayUrl": "omsaigold.ai.studio",
+      "category": "Bullion & Live rates",
+      "location": "Belagavi, Karnataka",
+      "tags": [
+        "Bullion",
+        "Live Bullion Rates",
+        "Most Trusted"
+      ],
+      "description": "Try now",
+      "highlights": [
+        "Mobile-optimized design: For quick smartphone access",
+        "Centralized daily rates: Reduces workload and phonecalls",
+        "Fast-loading: single-page HTML and CSS build."
+      ],
+      "techStack": [
+        "HTML5",
+        "Modern CSS",
+        "Responsive UI",
+        "Schema.org SEO",
+        "Netlify"
+      ],
+      "image": "favicon.png"
     }
   ],
   "services": {
